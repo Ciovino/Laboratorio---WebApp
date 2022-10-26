@@ -1,6 +1,6 @@
 <!--
     Creato il : Wed Oct 26 2022
-    Descrizione: Laboratorio #1
+    Descrizione: Laboratorio #2
 -->
 
 <!DOCTYPE html>
@@ -9,16 +9,17 @@
 <head>
     <title>Introduzione alle Applicazioni Web</title>
     <meta name="keyword" content="laboratorio, social, html">
+    <link rel="stylesheet" type="text/css" href="homepage.style.css">
 </head>
 
 <body>
-    <header>
+    <header class="border">
         <h1>a Big Title</h1>
         <a href="homepage.html" title="Homepage">Home</a>
         <a href="presentazione.html" title="Presentazione">Chi siamo</a>
     </header>
 
-    <aside>
+    <aside class="border">
         <ul>
             <li> <a href="oggi.html" title="I post di oggi">Oggi</a> </li>
             <li> <a href="settimana.html" title="I post della settimana">Questa settimana</a> </li>
@@ -26,17 +27,17 @@
         </ul>
     </aside>
 
-    <main>
-        <article>
-            <div>
+    <main class="border">
+        <article class="post">
+            <div class="intestazione-post">
                 <img src="Immagini/Profilo.png" alt="Foto profilo">
                 <h2> @luigi </h2>
                 <h3> 2 giorni fa </h3>
             </div>
 
-            <aside> <img src="Immagini/foto.png" alt="Foto post"> </aside>
+            <aside class="immagine-post"> <img src="Immagini/foto.png" alt="Foto post"> </aside>
 
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis enim ut egestas lacinia.
+            <p class="contenuto-post"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis enim ut egestas lacinia.
                 Vestibulum sodales at odio non semper. Donec mattis pellentesque rutrum. Nullam nunc eros, sagittis eu
                 gravida vel, interdum a tellus. Praesent quis lectus semper, interdum mauris eu, molestie ligula. Morbi
                 sagittis ullamcorper blandit. Vestibulum quis lectus nec odio mollis consectetur vel non libero. In ac
@@ -46,16 +47,16 @@
                 risus vitae laoreet. Donec lacinia nunc eu leo fringilla mollis. </p>
         </article>
 
-        <article>
-            <div>
+        <article class="post">
+            <div class="intestazione-post">
                 <img src="Immagini/Profilo.png" alt="Foto profilo">
                 <h2> @alberto </h2>
                 <h3> 4 giorni fa </h3>
             </div>
 
-            <aside> <img src="Immagini/foto.png" alt="Foto post"> </aside>
+            <aside class="immagine-post"> <img src="Immagini/foto.png" alt="Foto post"> </aside>
 
-            <p> Sed at orci mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+            <p class="contenuto-post"> Sed at orci mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
                 Donec efficitur diam vel neque vestibulum, nec laoreet ex elementum. Phasellus luctus ullamcorper
                 blandit. Nunc sed cursus massa. Donec facilisis at ipsum eget tempor. Sed orci sapien, aliquam id
                 rhoncus quis, pulvinar nec velit. Pellentesque id justo efficitur, consequat urna a, dapibus ante. Duis
@@ -64,25 +65,25 @@
                 in suscipit vel, cursus et nisi. Suspendisse facilisis imperdiet mi, vel porta mi aliquet quis. </p>
         </article>
 
-        <article>
-            <div>
+        <article class="post">
+            <div class="intestazione-post">
                 <img src="Immagini/Profilo.png" alt="Foto profilo">
                 <h2> @juan </h2>
                 <h3> 4 giorni fa </h3>
             </div>
 
-            <aside> <img src="Immagini/foto.png" alt="Foto post"> </aside>
+            <aside class="immagine-post"> <img src="Immagini/foto.png" alt="Foto post"> </aside>
 
-            <p> Aenean placerat tincidunt consequat. Nunc ut venenatis diam. Phasellus neque eros, eleifend in quam non,
+            <p class="contenuto-post"> Aenean placerat tincidunt consequat. Nunc ut venenatis diam. Phasellus neque eros, eleifend in quam non,
                 hendrerit aliquet lorem. Proin ullamcorper massa eget consectetur ornare. Vivamus varius tincidunt
                 tortor, vitae scelerisque tellus blandit eu. Vestibulum a tempus enim. Mauris congue sed erat vitae
                 dapibus. Nunc egestas congue est quis congue. Proin quis augue sit amet magna rutrum luctus. </p>
         </article>
     </main>
 
-    <footer>
-        <button name="Nuovo Post" type="button"> + </button>
-    </footer>
+    <a id="nuovo-post" href="NuovoPost.html" title="Aggiungi un post">
+        <img id="piu" src="Immagini/Piu.png" alt="Nuovo Post">
+    </a>
 </body>
 
 </html>

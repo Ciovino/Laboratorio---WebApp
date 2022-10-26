@@ -1,0 +1,112 @@
+/*  
+    Creato il : Wed Oct 26 2022
+    Descrizione: Laboratorio #2
+*/
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.border {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin-bottom: 3px;
+}
+
+/* Header */
+header {    
+    overflow: auto;
+}
+
+header > h1 {
+    float: left;
+    width: 77%;
+    padding-left: 3%;
+}
+
+header > p {
+    float: right;
+    width: 20%;
+    text-align: center;
+    padding-top: 15px;
+}
+
+/* Aside */
+body > aside {
+    clear: both;
+    float: left;
+    width: 23%;
+    margin-bottom: 3px;
+}
+
+aside > ul {
+    list-style-type: none;
+    padding-left: 5%;
+}
+
+/* Main */
+main {
+    float: right;
+    width: 74%;
+    margin-bottom: 3px;
+}
+
+article.post {
+    padding: 3px 3px 3px 1%;
+    overflow: auto;
+}
+
+article.post > aside.immagine-post {
+    float: left;
+    width: 20%;
+}
+aside.immagine-post > img {
+    width: 85%;
+    padding-top: 5%;
+}
+
+div.intestazione-post {
+    float: right;
+    width: 80%;
+}
+
+div.intestazione-post > img {
+    float: left;
+    width: 10%;
+}
+
+div.intestazione-post > h2 {
+    float: left;
+    width: 69%; /* Noice */
+    font-size: 17px;
+    padding-left: 1%;
+    font-style: italic;
+}
+
+div.intestazione-post > h3 {
+    float: right;
+    width: 20%;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+p.contenuto-post {
+    float: right;
+    width: 80%;
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+/* Bottone */
+a#nuovo-post {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+}
+
+#piu {
+    padding-left: 5px;
+    width: 50px;
+    height: 50px;
+}
