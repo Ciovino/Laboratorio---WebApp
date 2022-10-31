@@ -12,6 +12,6 @@ Aggiungere uno stile alla pagina tramite CSS3, utilizzando le proprietà di *flo
 
 ## Laboratorio #4: Bootstrap
 Applicare il framework Bootstrap alla homepage.
-- Importare Bootstrap nella pagina web attraverso gli opportuni tag <meta>, <link> e <script>;
+- Importare Bootstrap nella pagina web attraverso gli opportuni tag *meta*, *link* e *script*;
 - Implementare il layout della pagina sfruttando il grid system offerto da Bootstrap;
 - Rendere il layout dell'applicazione responsive attraverso i breakpoint definiti da Bootstrap.
