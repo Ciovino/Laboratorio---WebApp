@@ -8,9 +8,10 @@ header.navbar {
 }
 
 #nuovo-post {
-    width: 60px;
-    height: 60px;
+    background-color: #09a96d;    
+    width: 55px;
+    height: 55px;
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 3%;
+    right: 3%;
 }
