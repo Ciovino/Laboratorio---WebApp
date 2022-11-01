@@ -1,195 +1,21 @@
 /*  
-    Creato il : Wed Oct 26 2022
-    Descrizione: Laboratorio #3
+    Creato il : Mon Oct 31 2022 (Halloween 🎃)
+    Descrizione: Laboratorio #4
 */
 
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+header.navbar {
+    background-color: #09a96d;
 }
 
-.con-bordo {
-    border: 2px solid black;
-    margin-bottom: 3px;
-}
-
-.bordo-post {
-    border-top: 2px solid black;
-}
-
-/* Header */
-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-header > h1 {
-    flex: 3;
-    padding-left: 3%;
-}
-
-header > p {
-    flex: 0.7;
-}
-
-/* Contenuto principale: Aside + Main */
-div#contenuto-principale {
-    display: flex;
-    align-items: flex-start;
-}
-
-/* Aside */
-div#contenuto-principale > aside {
-    flex: 0.6;
-}
-
-div#link {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-
-/* Main */
-main {
-    flex: 3;
-    margin-left: 2%;
-}
-
-/* Post */
-article.post {
-    display: flex;
-    align-items: flex-start;
-    padding: 1%;
-}
-
-article.post > aside.immagine-post {
-    flex: 1;
-}
-
-aside.immagine-post > img {
-    width: 85%;
-    padding-top: 5%;
-}
-
-article.post > div.contenitore {
-    flex: 4;
-}
-
-div.intestazione-post {
-    display: flex;
-    align-items: center;
-}
-
-div.profilo-post {
-    flex: 4;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-style: italic;
-    font-size: 14px;
-}
-
-div.profilo-post > img {
-    padding-right: 1%;
-}
-
-h3.data-post {
-    flex: 1;
-    font-weight: 100;
-}
-
-.bordo-post {
-    border-top: 2px solid black;
-}
-
-#primo-post {
-    border-top: none;
-}
-
-/* Bottone */
-a#nuovo-post {
+#nuovo-post {
+    background-color: #09a96d;    
+    width: 55px;
+    height: 55px;
     position: fixed;
-    right: 25px;
-    bottom: 25px;
+    bottom: 3%;
+    right: 3%;
 }
 
-#piu {
-    padding-left: 5px;
-    width: 50px;
-    height: 50px;
-}
-
-@media screen and (max-width: 768px) {
-    body {
-        font-size: small;
-        min-width: 440px;
-    }
-
-    /* Header */
-    header > p {
-        flex: 1;
-    }
-
-    /* Contenuto principale: Aside + Main */
-    div#contenuto-principale {
-        display: block;
-    }
-
-    /* Aside */
-    div#contenuto-principale > aside {
-        border: none;
-    }
-
-    div#link {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    /* Main */
-    main {
-        margin-left: 0;
-    }
-
-    /* Post */
-    article.post > div.contenitore {
-        flex: 1;
-    }
-
-    div.profilo-post {
-        flex: 2;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    body {
-        min-width: 260px;
-        font-size: smaller;
-    }
-
-    /* Header */
-    header {
-        justify-content: center;
-    }
-
-    header > h1 {
-        flex: 1;
-        padding-left: 0%;
-        text-align: center;
-    }
-
-    header > p {
-        display: none;
-    }
-
-    /* Post */
-    article.post {
-        display: block;
-    }
-
-    aside.immagine-post > img {
-        width: 100%;
-        padding-top: 5%;
-    }
+.foto-profilo {
+    width: 75%;
 }
