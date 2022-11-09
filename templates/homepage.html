@@ -1,0 +1,150 @@
+<!--
+    Creato il : Mon Oct 31 2022 (Halloween 🎃)
+    Descrizione: Laboratorio #4
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Introduzione alle Applicazioni Web</title>
+    <meta name="keyword" content="laboratorio, social, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../homepage.style.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap link https://getbootstrap.com/docs/5.2/getting-started/introduction/ -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> Piccolo Grande Social </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="homepage.html" title="Homepage"> Home </a>
+                    <a class="nav-link" href="presentazione.html" title="Presentazione"> Chi siamo </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="row m-0">
+        <div class="col-lg-3">
+            <aside>
+                <div class="d-flex flex-lg-column flex-sm-row justify-content-between">
+                    <a class="p-2 mt-lg-3 text-decoration-none" href="oggi.html" title="I post di oggi">Oggi</a>
+                    <a class="p-2 text-decoration-none" href="settimana.html" title="I post della settimana">Questa
+                        settimana</a>
+                    <a class="p-2 text-decoration-none" href="mese.html" title="I post del mese">Questo mese</a>
+                </div>
+            </aside>
+        </div>
+
+        <div class="col-lg-9">
+            <main>
+                <article class="row p-2 border m-1">
+                    <aside class="col-lg-3 col-md-6"> <img class="p-1 w-100" src="../Immagini/img1.jpg" alt="Foto post">
+                    </aside>
+
+                    <div class="col-lg-9 col-md-6">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-9 d-flex">
+                                <img class="rounded-circle" src="../Immagini/Profilo.png" alt="Foto profilo">
+                                <h2 class="fs-4"> @luigi </h2>
+                            </div>
+                            <h3 class="col-3 fs-6"> 2 giorni fa </h3>
+                        </div>
+
+                        <p class="row fs-6"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis
+                            enim ut egestas lacinia. Vestibulum sodales at odio non semper. Donec mattis pellentesque
+                            rutrum. Nullam nunc eros, sagittis eu gravida vel, interdum a tellus. Praesent quis lectus
+                            semper, interdum mauris eu, molestie ligula. Morbi sagittis ullamcorper blandit. Vestibulum
+                            quis
+                            lectus nec odio mollis consectetur vel non libero. In ac leo dolor. Nunc consequat quam et
+                            leo
+                            pretium porta. Morbi rhoncus ex sem, id fringilla tellus eleifend sed. Curabitur dapibus
+                            suscipit sodales. In at lacinia mi. Cras fermentum accumsan lorem, sed interdum turpis
+                            consequat
+                            non. Etiam dolor lacus, viverra vitae dignissim a, eleifend et dui. Nullam bibendum non
+                            risus
+                            vitae laoreet. Donec lacinia nunc eu leo fringilla mollis. </p>
+                    </div>
+                </article>
+
+                <article class="row p-2 border m-1">
+                    <aside class="col-lg-3 col-md-6"> <img class="p-1 w-100" src="../Immagini/img2.jpg" alt="Foto post">
+                    </aside>
+
+                    <div class="col-lg-9 col-md-6">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-9 d-flex">
+                                <img class="rounded-circle" src="../Immagini/Profilo.png" alt="Foto profilo">
+                                <h2 class="fs-4"> @alberto </h2>
+                            </div>
+                            <h3 class="col-3 fs-6"> 4 giorni fa </h3>
+                        </div>
+
+                        <p class="row fs-6"> Sed at orci mi. Vestibulum ante ipsum primis in faucibus orci luctus et
+                            ultrices posuere cubilia curae; Donec efficitur diam vel neque vestibulum, nec laoreet ex
+                            elementum. Phasellus luctus ullamcorper blandit. Nunc sed cursus massa. Donec facilisis at
+                            ipsum
+                            eget tempor. Sed orci sapien, aliquam id rhoncus quis, pulvinar nec velit. Pellentesque id
+                            justo
+                            efficitur, consequat urna a, dapibus ante. Duis ipsum eros, commodo ut finibus et,
+                            pellentesque
+                            ut lacus. Sed tempus lacinia orci eget rutrum. Nullam cursus nisl nisi. Vivamus iaculis
+                            faucibus
+                            lectus in gravida. Ut a vehicula mi. Nulla sem massa, euismod in suscipit vel, cursus et
+                            nisi.
+                            Suspendisse facilisis imperdiet mi, vel porta mi aliquet quis. </p>
+                    </div>
+                </article>
+
+                <article class="row p-2 border m-1">
+                    <aside class="col-lg-3 col-md-6"> <img class="p-1 w-100" src="../Immagini/img3.jpg" alt="Foto post">
+                    </aside>
+
+                    <div class="col-lg-9 col-md-6">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-9 d-flex">
+                                <img class="rounded-circle" src="../Immagini/Profilo.png" alt="Foto profilo">
+                                <h2 class="fs-4"> @juan </h2>
+                            </div>
+                            <h3 class="col-3 fs-6"> 4 giorni fa </h3>
+                        </div>
+
+                        <p class="row fs-6"> Aenean placerat tincidunt consequat. Nunc ut venenatis diam. Phasellus
+                            neque eros, eleifend in quam non, hendrerit aliquet lorem. Proin ullamcorper massa eget
+                            consectetur ornare. Vivamus varius tincidunt tortor, vitae scelerisque tellus blandit eu.
+                            Vestibulum a tempus enim. Mauris congue sed erat vitae dapibus. Nunc egestas congue est quis
+                            congue. Proin quis augue sit amet magna rutrum luctus. </p>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+
+
+    <a class="nuovo-post" href="NuovoPost.html" title="Aggiungi un post">
+        <div id="nuovo-post" class="d-flex align-items-center justify-content-center rounded-circle">
+            <p class="text-white text-decoration-none fs-2 mb-1"> + </p>
+            <!-- <img class="m-3 p-2 rounded-circle" id="nuovo-post" src="Immagini/Piu.png" alt="Nuovo Post"> -->
+        </div>
+    </a>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"> </script>
+</body>
+
+</html>
