@@ -1,14 +1,9 @@
-/*  
-    Creato il : Mon Oct 31 2022 (Halloween 🎃)
-    Descrizione: Laboratorio #4
-*/
-
 header.navbar {
     background-color: #09a96d;
 }
 
 #nuovo-post {
-    background-color: #09a96d;    
+    background-color: #09a96d;
     width: 55px;
     height: 55px;
     position: fixed;
