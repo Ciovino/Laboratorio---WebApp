@@ -1,5 +1,15 @@
+* {
+    margin: 0 !important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 header.navbar {
     background-color: #09a96d;
+}
+
+.fb {
+    flex-basis: 100%;
+    text-align: center;
 }
 
 #nuovo-post {

@@ -3,6 +3,7 @@
 
 <head>
     <title> Chi Siamo </title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Immagini/favicon.png') }}">
     <meta name="keyword" content="laboratorio, social, html, presentazione, autore">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,18 +32,22 @@
         </div>
     </header>
 
-    <!-- Aggiungere presentazione
-    <p> Ciao sono Giovi, sono un giovane talento che studia al politencico e che spera di risolvere qualcosa in questo
-        mondo. Il mio obiettivo di oggi è quello di darvi una presentazione di me stesso.
-    </p>
-    <p>
-        Che dire su di me? Ho 21 anni, quasi 22, sono di Montepeloso (MT).
-    </p> -->
+    <section class="row rounded-pill d-flex align-items-center m-4 p-3">
+        <div class="col item">
+            <div id="primo">Inserisci un titolo, stronzo</div>
+            <div id="secondo"> Scrivici qualcosa anche qua, coglione</div>
+        </div>
+        <div class="col item"> <img class="foto-Giovi"
+                src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale"> </div>
+    </section>
 
-    <div>
-        <img class="foto-Giovi" src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale">
-        <img class="foto-Giovi" src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino">
-    </div>
+    <section class="row rounded-pill d-flex align-items-center m-4 p-3">
+        <div class="col item"> <img class="foto-Giovi"
+                src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino"> </div>
+        <p class="col item">La droga da, la droga dajee</p>
+    </section>
+
+    <footer></footer>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

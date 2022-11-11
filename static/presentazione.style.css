@@ -1,7 +1,44 @@
+* {
+    margin: 0 !important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 header.navbar {
     background-color: #09a96d;
 }
 
+#primo {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: underline solid rgba(9, 169, 109, 0.7);
+}
+
+#secondo {
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+section.row {
+    color: white;
+    background-color: rgba(168, 39, 249, 0.3);
+    transition: 0.5s;
+}
+
+section.row:hover {
+    background-color: rgba(168, 39, 249, 0.6);
+}
+
+.item {
+    flex-basis: 100%;
+    text-align: center;
+}
+
 .foto-Giovi {
-    width: 30%;
+    width: 60%;
+    transition: 0.4s;
+}
+
+.foto-Giovi:hover {
+    transform: scale(1.05);
 }
