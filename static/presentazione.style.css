@@ -7,6 +7,11 @@ header.navbar {
     background-color: #09a96d;
 }
 
+footer {
+    color: white;
+    background-color: #09a96d;
+}
+
 #primo {
     font-size: 24px;
     font-weight: 700;
@@ -21,24 +26,37 @@ header.navbar {
 
 section.row {
     color: white;
-    background-color: rgba(168, 39, 249, 0.3);
+    background-color: rgba(168, 39, 249, 0.4);
     transition: 0.5s;
 }
 
 section.row:hover {
-    background-color: rgba(168, 39, 249, 0.6);
+    background-color: rgba(168, 39, 249, 0.3);
 }
 
-.item {
+.fb-100 {
     flex-basis: 100%;
     text-align: center;
 }
 
-.foto-Giovi {
-    width: 60%;
+.scale {
+
     transition: 0.4s;
 }
 
-.foto-Giovi:hover {
-    transform: scale(1.05);
+.foto-Giovi {
+    width: 60%;
+}
+
+.scale:hover {
+    transform: scale(1.07);
+}
+
+.link-footer {
+    text-decoration: none;
+    color: white;
+}
+
+.link-footer:hover {
+    color: white;
 }

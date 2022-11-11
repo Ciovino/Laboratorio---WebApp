@@ -33,21 +33,37 @@
     </header>
 
     <section class="row rounded-pill d-flex align-items-center m-4 p-3">
-        <div class="col item">
+        <div class="col scale fb-100">
             <div id="primo">Inserisci un titolo, stronzo</div>
             <div id="secondo"> Scrivici qualcosa anche qua, coglione</div>
         </div>
-        <div class="col item"> <img class="foto-Giovi"
+        <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
                 src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale"> </div>
     </section>
 
     <section class="row rounded-pill d-flex align-items-center m-4 p-3">
-        <div class="col item"> <img class="foto-Giovi"
+        <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
                 src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino"> </div>
-        <p class="col item">La droga da, la droga dajee</p>
+        <p class="col scale fb-100">La droga da, la droga dajee</p>
     </section>
 
-    <footer></footer>
+    <footer class="d-flex align-items-center">
+        <div class="fb-100 d-flex flex-column order-2">
+            <a class="link-footer" href="https://www.instagram.com/ciovii_/" title="Profilo Instagram" target="_blank">
+                Instagram </a>
+            <a class="link-footer" href="https://github.com/Ciovino" title="Profilo GitHub" target="_blank"> GitHub </a>
+            <a class="link-footer" href="https://playhcr.com/invite?id=4la9vO"
+                title="Diventa amico su Hill Climb Racing 2" target="_blank"> Hill Climb Racing </a>
+        </div>
+        <div class="fb-100 d-flex flex-column order-1">
+            <p> Introduzione alle Applicazioni Web </p>
+            <p> PopiPopi di Torino - 2022/2023 </p>
+        </div>
+        <div class="fb-100 d-flex flex-column order-3">
+            <a class="link-footer" href="https://www.paypal.me/ciovii" title="Profilo Paypal" target="_blank">
+                Offrimi un caffè </a>
+        </div>
+    </footer>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
