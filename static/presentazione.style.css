@@ -4,12 +4,17 @@
 }
 
 header.navbar {
-    background-color: #09a96d;
+    background-color: #ff9f43;
 }
 
 footer {
     color: white;
-    background-color: #09a96d;
+    font-style: italic;
+    background-color: #feca57;
+}
+
+footer>div {
+    flex-basis: 100%;
 }
 
 #primo {
@@ -32,6 +37,13 @@ section.row {
 
 section.row:hover {
     background-color: rgba(168, 39, 249, 0.3);
+}
+
+div.titolo>p {
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline #ff9f43;
 }
 
 .fb-100 {
@@ -59,4 +71,8 @@ section.row:hover {
 
 .link-footer:hover {
     color: white;
+}
+
+.da-rifare {
+    visibility: hidden;
 }

@@ -32,36 +32,63 @@
         </div>
     </header>
 
-    <section class="row rounded-pill d-flex align-items-center m-4 p-3">
-        <div class="col scale fb-100">
-            <div id="primo">Inserisci un titolo, stronzo</div>
-            <div id="secondo"> Scrivici qualcosa anche qua, coglione</div>
-        </div>
-        <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
-                src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale"> </div>
-    </section>
+    <div class="da-rifare">
+        <section class="row rounded-pill d-flex align-items-center m-4 p-3">
+            <div class="col scale fb-100">
+                <div id="primo">Inserisci un titolo, stronzo</div>
+                <div id="secondo"> Scrivici qualcosa anche qua, coglione</div>
+            </div>
+            <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
+                    src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale"> </div>
+        </section>
 
-    <section class="row rounded-pill d-flex align-items-center m-4 p-3">
-        <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
-                src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino"> </div>
-        <p class="col scale fb-100">La droga da, la droga dajee</p>
-    </section>
+        <section class="row rounded-pill d-flex align-items-center m-4 p-3">
+            <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
+                    src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino"> </div>
+            <p class="col scale fb-100">La droga da, la droga dajee</p>
+        </section>
+    </div>
 
-    <footer class="d-flex align-items-center">
-        <div class="fb-100 d-flex flex-column order-2">
-            <a class="link-footer" href="https://www.instagram.com/ciovii_/" title="Profilo Instagram" target="_blank">
-                Instagram </a>
-            <a class="link-footer" href="https://github.com/Ciovino" title="Profilo GitHub" target="_blank"> GitHub </a>
-            <a class="link-footer" href="https://playhcr.com/invite?id=4la9vO"
-                title="Diventa amico su Hill Climb Racing 2" target="_blank"> Hill Climb Racing </a>
+    <footer class="d-flex align-items-center pb-5">
+        <div class="d-flex flex-column order-3 p-5 me-5">
+            <div class="titolo mb-2">
+                <p>Social</p>
+            </div>
+
+            <div class="contenuto d-flex flex-column">
+                <a class="link-footer" href="https://www.instagram.com/ciovii_/" title="Profilo Instagram"
+                    target="_blank">
+                    Instagram </a>
+                <a class="link-footer" href="https://github.com/Ciovino" title="Profilo GitHub" target="_blank"> GitHub
+                </a>
+                <a class="link-footer" href="https://playhcr.com/invite?id=4la9vO"
+                    title="Diventa amico su Hill Climb Racing 2" target="_blank"> Hill Climb Racing </a>
+            </div>
         </div>
-        <div class="fb-100 d-flex flex-column order-1">
-            <p> Introduzione alle Applicazioni Web </p>
-            <p> PopiPopi di Torino - 2022/2023 </p>
+
+        <div class="d-flex flex-column order-1 p-5 ms-5">
+            <div class="titolo mb-2">
+                <p>Piccolo Grande Social</p>
+            </div>
+
+            <div class="contenuto">
+                <p>Introduzione alle Applicazioni Web</p>
+                <p>PopiPopi di Torino - 2022/2023</p>
+            </div>
         </div>
-        <div class="fb-100 d-flex flex-column order-3">
+
+        <div class="d-flex flex-column order-2 p-5">
+            <div class="titolo mb-1">
+                <p>Contatti</p>
+            </div>
+            <a class="link-footer" href="mailto:tarantino.giovanbattista01@gmail.com" title="Mail" target="_blank">
+                Mail</a>
+
+            <div class="titolo mb-1 mt-3">
+                <p>Donazioni</p>
+            </div>
             <a class="link-footer" href="https://www.paypal.me/ciovii" title="Profilo Paypal" target="_blank">
-                Offrimi un caffè </a>
+                Offrimi un caffè</a>
         </div>
     </footer>
 
