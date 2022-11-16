@@ -1,0 +1,78 @@
+* {
+    margin: 0 !important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header.navbar {
+    background-color: #ff9f43;
+}
+
+footer {
+    color: white;
+    font-style: italic;
+    background-color: #feca57;
+}
+
+footer>div {
+    flex-basis: 100%;
+}
+
+#primo {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: underline solid rgba(9, 169, 109, 0.7);
+}
+
+#secondo {
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+section.row {
+    color: white;
+    background-color: rgba(168, 39, 249, 0.4);
+    transition: 0.5s;
+}
+
+section.row:hover {
+    background-color: rgba(168, 39, 249, 0.3);
+}
+
+div.titolo>p {
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline #ff9f43;
+}
+
+.fb-100 {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.scale {
+
+    transition: 0.4s;
+}
+
+.foto-Giovi {
+    width: 60%;
+}
+
+.scale:hover {
+    transform: scale(1.07);
+}
+
+.link-footer {
+    text-decoration: none;
+    color: white;
+}
+
+.link-footer:hover {
+    color: white;
+}
+
+.da-rifare {
+    visibility: hidden;
+}
