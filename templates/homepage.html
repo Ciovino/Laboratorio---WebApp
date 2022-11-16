@@ -32,16 +32,14 @@
         </div>
     </header>
 
-    <div class="row m-0">
+    <div id="contenuto" class="row mt-3 mb-3">
         <div class="col-lg-3">
             <aside>
                 <div class="d-flex flex-lg-column flex-sm-row justify-content-between">
-                    <a class="p-2 mt-lg-3 text-decoration-none text-lg-start fb" href="oggi.html"
-                        title="I post di oggi">Oggi</a>
-                    <a class="p-2 text-decoration-none text-lg-start fb" href="settimana.html"
-                        title="I post della settimana">Questa
+                    <a class="p-2 mt-lg-3 text-lg-start" href="oggi.html" title="I post di oggi">Oggi</a>
+                    <a class="p-2 text-lg-start" href="settimana.html" title="I post della settimana">Questa
                         settimana</a>
-                    <a class="p-2 text-decoration-none text-lg-start fb" href="mese.html" title="I post del mese">Questo
+                    <a class="p-2 text-lg-start" href="mese.html" title="I post del mese">Questo
                         mese</a>
                 </div>
             </aside>
@@ -50,12 +48,12 @@
         <div class="col-lg-9">
             <main>
                 {% for post in posts %}
-                <article class="row p-2 m-1 post-bordo">
-                    <aside class="col-lg-3 col-md-6"> <img class="p-1 w-100"
+                <article class="row p-2 m-1 post-bordo rounded-4">
+                    <aside class="col-lg-3 col-md-6"> <img class="w-100 rounded-4"
                             src="{{ url_for('static', filename=post.fotoPost) }}""> 
                     </aside>
 
-                    <div class=" col-lg-9 col-md-6">
+                    <div class=" col-lg-9 col-md-6 p-2">
                         <div class="row d-flex align-items-center">
                             <div class="col-9 d-flex align-items-center">
                                 <img class="rounded-circle" src="{{ url_for('static', filename=post.fotoProfilo) }}"
@@ -79,6 +77,53 @@
             <!-- <img class="m-3 p-2 rounded-circle" id="nuovo-post" src="Immagini/Piu.png" alt="Nuovo Post"> -->
         </div>
     </a>
+
+    <footer
+        class="d-flex flex-column flex-lg-row align-items-lg-start align-items-center justify-content-around pt-5 pt-md-3 pb-5 pb-md-3">
+        <div class="d-flex flex-column p-lg-5 p-md-2 p-5 mb-lg-0 mb-5">
+            <div class="titolo mb-2">
+                <p>Piccolo Grande Social</p>
+            </div>
+
+            <div class="contenuto">
+                <p>Introduzione alle Applicazioni Web</p>
+                <p>PopiPopi di Torino - 2022/2023</p>
+            </div>
+        </div>
+
+        <div id="coppia" class="d-flex">
+            <div class="d-flex flex-column p-lg-5 p-md-2 p-sm-5 p-4 me-4">
+                <div class="titolo mb-1">
+                    <p>Contatti</p>
+                </div>
+                <a class="link-footer" href="mailto:tarantino.giovanbattista01@gmail.com" title="Mail" target="_blank">
+                    Mail</a>
+
+                <div class="titolo mb-1 mt-3">
+                    <p>Donazioni</p>
+                </div>
+                <a class="link-footer" href="https://www.paypal.me/ciovii" title="Profilo Paypal" target="_blank">
+                    Offrimi un caffè</a>
+            </div>
+
+            <div class="d-flex flex-column p-lg-5 p-md-2 p-4 ms-4">
+                <div class="titolo mb-2">
+                    <p>Social</p>
+                </div>
+
+                <div class="contenuto d-flex flex-column">
+                    <a class="link-footer" href="https://www.instagram.com/ciovii_/" title="Profilo Instagram"
+                        target="_blank">
+                        Instagram </a>
+                    <a class="link-footer" href="https://github.com/Ciovino" title="Profilo GitHub" target="_blank">
+                        GitHub
+                    </a>
+                    <a class="link-footer" href="https://playhcr.com/invite?id=4la9vO"
+                        title="Diventa amico su Hill Climb Racing 2" target="_blank"> Hill Climb Racing </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

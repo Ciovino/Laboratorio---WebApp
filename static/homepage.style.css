@@ -3,22 +3,36 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-header.navbar {
-    background-color: #ff9f43;
+body {
+    color: #2F0147 !important;
 }
 
-.fb {
+div#contenuto a {
+    color: #2F0147 !important;
     flex-basis: 100%;
     text-align: center;
 }
 
+header.navbar {
+    background-color: #9C528B;
+    border-bottom: 3px solid #2F0147;
+}
+
 #nuovo-post {
-    background-color: #ff9f43;
+    background-color: #B9929F;
     width: 55px;
     height: 55px;
     position: fixed;
     bottom: 3%;
     right: 3%;
+    opacity: 0.5;
+    transition: 0.5s;
+    border: 3px solid #2F0147;
+}
+
+#nuovo-post:hover {
+    opacity: 1;
+    background-color: #2F0147;
 }
 
 .foto-profilo {
@@ -26,5 +40,27 @@ header.navbar {
 }
 
 article.post-bordo {
-    border: 2px solid #ff9f43 !important;
+    border: 2px solid #610F7F !important;
+}
+
+footer {
+    color: white;
+    font-style: italic;
+    background-color: #9C528B;
+}
+
+div.titolo>p {
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline #2F0147;
+}
+
+.link-footer {
+    text-decoration: none;
+    color: white;
+}
+
+.link-footer:hover {
+    color: white;
 }
