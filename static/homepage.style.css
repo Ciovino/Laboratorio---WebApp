@@ -27,16 +27,11 @@ header.navbar {
     right: 3%;
     opacity: 0.5;
     transition: 0.5s;
-    border: 3px solid #2F0147;
 }
 
 #nuovo-post:hover {
     opacity: 1;
     background-color: #2F0147;
-}
-
-.foto-profilo {
-    width: 75%;
 }
 
 article.post-bordo {
@@ -47,6 +42,7 @@ footer {
     color: white;
     font-style: italic;
     background-color: #9C528B;
+    border-top: 3px solid #2F0147;
 }
 
 div.titolo>p {

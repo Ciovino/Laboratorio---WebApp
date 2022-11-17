@@ -26,12 +26,12 @@ header.navbar {
 
 section.row {
     color: white;
-    background-color: rgba(185, 146, 159, 0.7);
+    background-color: rgba(156, 82, 139, 0.7);
     transition: 0.5s;
 }
 
 section.row:hover {
-    background-color: rgb(156, 82, 139);
+    background-color: #2F0147;
 }
 
 .fb-100 {
@@ -40,7 +40,6 @@ section.row:hover {
 }
 
 .scale {
-
     transition: 0.4s;
 }
 
@@ -56,6 +55,7 @@ footer {
     color: white;
     font-style: italic;
     background-color: #9C528B;
+    border-top: 3px solid #2F0147;
 }
 
 div.titolo>p {
