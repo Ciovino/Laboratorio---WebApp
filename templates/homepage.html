@@ -27,8 +27,10 @@
         <main>
             {% for post in posts %}
             <article class="row p-2 m-1 post-bordo rounded-4">
-                <aside class="col-lg-3 col-md-6"> <img class="rounded-4 w-100"
-                        src="{{ url_for('static', filename=post.fotoPost) }}""> 
+                <aside class="col-lg-3 col-md-6">
+                    <a href="{{ url_for('post', id=post.id) }}">
+                        <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.fotoPost) }}">
+                    </a>
                 </aside>
 
                 <div class=" col-lg-9 col-md-6 p-2">
@@ -42,15 +44,15 @@
                     </div>
 
                     <p class="row fs-6"> {{ post.contenuto }} </p>
+                </div>
+            </article>
+            {% endfor %}
+        </main>
     </div>
-    </article>
-    {% endfor %}
-    </main>
-</div>
 
-<a class="nuovo-post" href="NuovoPost.html" title="Aggiungi un post">
-    <div id="nuovo-post" class="d-flex align-items-center justify-content-center rounded-circle">
-        <p class="text-white text-decoration-none fs-2 mb-1"> + </p>
-    </div>
-</a>
-{% endblock %}
+    <a class="nuovo-post" href="NuovoPost.html" title="Aggiungi un post">
+        <div id="nuovo-post" class="d-flex align-items-center justify-content-center rounded-circle">
+            <p class="text-white text-decoration-none fs-2 mb-1"> + </p>
+        </div>
+    </a>
+    {% endblock %}
