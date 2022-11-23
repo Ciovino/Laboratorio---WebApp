@@ -12,31 +12,9 @@ footer {
     font-size: larger;
 }
 
-div#contenuto a {
-    color: #2F0147 !important;
-    flex-basis: 100%;
-    text-align: center;
-}
-
 header.navbar {
     background-color: #9C528B;
     border-bottom: 3px solid #2F0147;
-}
-
-#nuovo-post {
-    background-color: #B9929F;
-    width: 55px;
-    height: 55px;
-    position: fixed;
-    bottom: 3%;
-    right: 3%;
-    opacity: 0.5;
-    transition: 0.5s;
-}
-
-#nuovo-post:hover {
-    opacity: 1;
-    background-color: #2F0147;
 }
 
 article.post-bordo {

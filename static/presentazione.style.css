@@ -3,27 +3,26 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-header.navbar {
-    background-color: #ff9f43;
+body {
+    color: #2F0147 !important;
 }
 
+header,
 footer {
-    color: white;
-    font-style: italic;
-    background-color: #feca57;
+    font-size: larger;
 }
 
-footer>div {
-    flex-basis: 100%;
+header.navbar {
+    background-color: #9C528B;
+    border-bottom: 3px solid #2F0147;
 }
 
-#primo {
+.primo {
     font-size: 24px;
     font-weight: 700;
-    text-decoration: underline solid rgba(9, 169, 109, 0.7);
 }
 
-#secondo {
+.secondo {
     font-size: 20px;
     font-weight: 400;
     font-style: italic;
@@ -31,19 +30,12 @@ footer>div {
 
 section.row {
     color: white;
-    background-color: rgba(168, 39, 249, 0.4);
+    background-color: rgba(156, 82, 139, 0.7);
     transition: 0.5s;
 }
 
 section.row:hover {
-    background-color: rgba(168, 39, 249, 0.3);
-}
-
-div.titolo>p {
-    font-style: normal;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: underline #ff9f43;
+    background-color: #2F0147;
 }
 
 .fb-100 {
@@ -52,7 +44,6 @@ div.titolo>p {
 }
 
 .scale {
-
     transition: 0.4s;
 }
 
@@ -64,6 +55,20 @@ div.titolo>p {
     transform: scale(1.07);
 }
 
+footer {
+    color: white;
+    font-style: italic;
+    background-color: #9C528B;
+    border-top: 3px solid #2F0147;
+}
+
+div.titolo>p {
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline #2F0147;
+}
+
 .link-footer {
     text-decoration: none;
     color: white;
@@ -71,8 +76,4 @@ div.titolo>p {
 
 .link-footer:hover {
     color: white;
-}
-
-.da-rifare {
-    visibility: hidden;
 }

@@ -1,101 +1,30 @@
-<!DOCTYPE html>
-<html lang="it">
+{% extends "base.html" %}
 
-<head>
-    <title> Chi Siamo </title>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Immagini/favicon.png') }}">
-    <meta name="keyword" content="laboratorio, social, html, presentazione, autore">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block titolo %}Chi siamo{% endblock %}
 
-    <link href="{{ url_for('static', filename='presentazione.style.css') }}" rel="stylesheet" type="text/css">
-    <!-- Bootstrap CSS -->
-    <!-- Bootstrap docs https://getbootstrap.com/docs/5.2/getting-started/introduction/ -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
+{% block css %}
+<link href="{{ url_for('static', filename='presentazione.style.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
 
-<body>
-    <header class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('homepage') }}"> Piccolo Grande Social </a>
+{% block home_active %}" href="{{ url_for('homepage') }}{% endblock %}
+{% block presentazione_active %}active" aria-current="page" href="#{% endblock %}
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="{{ url_for('homepage') }}" title="Homepage"> Home </a>
-                    <a class="nav-link active" aria-current="page" href="#" title="Presentazione"> Chi siamo </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div>
-        <section class="row rounded-pill d-flex align-items-center m-4 p-3">
-            <div class="col scale fb-100">
-                <div id="primo">Inserisci un titolo, stronzo</div>
-                <div id="secondo"> Scrivici qualcosa anche qua, coglione</div>
-            </div>
-            <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
-                    src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale"> </div>
-        </section>
-
-        <section class="row rounded-pill d-flex align-items-center m-4 p-3">
-            <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
-                    src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino"> </div>
-            <p class="col scale fb-100">La droga da, la droga dajee</p>
-        </section>
+{% block contenuto %}
+<section class="row rounded-pill d-flex align-items-center m-4 p-3">
+    <div class="col scale fb-100">
+        <div class="primo">Descrizione del social</div>
+        <div class="secondo">Descrizione della descrizione (?)</div>
     </div>
+    <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
+            src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale"> </div>
+</section>
 
-    <footer class="d-flex align-items-center pb-5">
-        <div class="d-flex flex-column order-3 p-5 me-5">
-            <div class="titolo mb-2">
-                <p>Social</p>
-            </div>
-
-            <div class="contenuto d-flex flex-column">
-                <a class="link-footer" href="https://www.instagram.com/ciovii_/" title="Profilo Instagram"
-                    target="_blank">
-                    Instagram </a>
-                <a class="link-footer" href="https://github.com/Ciovino" title="Profilo GitHub" target="_blank"> GitHub
-                </a>
-                <a class="link-footer" href="https://playhcr.com/invite?id=4la9vO"
-                    title="Diventa amico su Hill Climb Racing 2" target="_blank"> Hill Climb Racing </a>
-            </div>
-        </div>
-
-        <div class="d-flex flex-column order-1 p-5 ms-5">
-            <div class="titolo mb-2">
-                <p>Piccolo Grande Social</p>
-            </div>
-
-            <div class="contenuto">
-                <p>Introduzione alle Applicazioni Web</p>
-                <p>PopiPopi di Torino - 2022/2023</p>
-            </div>
-        </div>
-
-        <div class="d-flex flex-column order-2 p-5">
-            <div class="titolo mb-1">
-                <p>Contatti</p>
-            </div>
-            <a class="link-footer" href="mailto:tarantino.giovanbattista01@gmail.com" title="Mail" target="_blank">
-                Mail</a>
-
-            <div class="titolo mb-1 mt-3">
-                <p>Donazioni</p>
-            </div>
-            <a class="link-footer" href="https://www.paypal.me/ciovii" title="Profilo Paypal" target="_blank">
-                Offrimi un caffè</a>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"> </script>
-</body>
-
-</html>
+<section class="row rounded-pill d-flex align-items-center m-4 p-3">
+    <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
+            src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino"> </div>
+    <div class="col scale fb-100">
+        <div class="primo">Descrizione dell'autore</div>
+        <div class="secondo">Altra descrizione</div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block titolo %}{{post.id}}{% endblock %}
+
+{% block css %}
+<link href="{{ url_for('static', filename='post.style.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block home_active %}" href="{{ url_for('homepage') }}{% endblock %}
+{% block presentazione_active %}" href="{{ url_for('presentazione') }}{% endblock %}
+
+{% block contenuto %}
+<article class="row p-2 m-1 post-bordo rounded-4 m-3">
+    <aside class="col-lg-3 col-md-6">
+        <a href="{{ url_for('post', id=post.id) }}">
+            <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.fotoPost) }}">
+        </a>
+    </aside>
+
+    <div class=" col-lg-9 col-md-6 p-2">
+        <div class="row d-flex align-items-center">
+            <div class="col-9 d-flex align-items-center">
+                <img class="rounded-circle" src="{{ url_for('static', filename=post.fotoProfilo) }}" alt="Foto profilo">
+                <h2 class="fs-4"> @{{ post.username }} </h2>
+            </div>
+            <h3 class="col-3 fs-6"> {{ post.giorniFa }} giorni fa </h3>
+        </div>
+
+        <p class="row fs-6"> {{ post.contenuto }} </p>
+    </div>
+</article>
+{% endblock %}

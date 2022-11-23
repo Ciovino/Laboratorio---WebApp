@@ -30,3 +30,9 @@ Creare un back-end in Python per il social network sviluppato durante il laborat
   - Creare le cartelle necessarie all’interno del progetto, inserendo i file HTML all’interno della cartella “templates”;
   - Modificare il file HTML sviluppato nei precedenti laboratori, eliminando i post statici e sostituendoli con le opportune espressioni e statement di programmazione. Nello stesso file, inserire un link verso la nuova pagina “Chi siamo” all’interno della navbar.
   - Adattare il file HTML per “Chi siamo” in modo da sfruttare le espressioni di Jinja per le immagini ed eventuali link.
+
+## Laboratorio #6: Flask Avanzato
+Estendere il social network aggiungendo la possibilità di visualizzare i singoli post in una pagina dedicata, sfruttando le route dinamiche di Flask e il templating di Jinja.
+- Associare un identificativo numerico univoco ai post salvati nell'applicazione, aggiungendo un opportuno campo alle strutture dati utilizzate;
+- Creare una route dinamica per i singoli post, utilizzando gli identificativi numerici dei post come parametro. Quando l'utente clicca sul post nella homepage, il sito web mostra una pagina dedicata dove viene visualizzato il post selezionato. La pagina in questione dovrà avere la stessa struttura della homepage (navbar, aside...), e dovrà visualizzare tutte le informazioni del post nel corpo principale;
+- Ristrutturare il codice HTML dell'intera applicazione utilizzando l'ereditarietà dei template offerta da jinja. Si definisca un template di base che includa la navbar e l'aside, e lo si riutilizzi estendendolo in tutte le pagine del sito web.
