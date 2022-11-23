@@ -7,18 +7,22 @@ body {
     color: #2F0147 !important;
 }
 
+header,
+footer {
+    font-size: larger;
+}
+
 header.navbar {
     background-color: #9C528B;
     border-bottom: 3px solid #2F0147;
 }
 
-#primo {
+.primo {
     font-size: 24px;
     font-weight: 700;
-    text-decoration: underline solid #2F0147;
 }
 
-#secondo {
+.secondo {
     font-size: 20px;
     font-weight: 400;
     font-style: italic;

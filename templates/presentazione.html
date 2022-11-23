@@ -12,8 +12,8 @@
 {% block contenuto %}
 <section class="row rounded-pill d-flex align-items-center m-4 p-3">
     <div class="col scale fb-100">
-        <div id="primo">Inserisci un titolo, stronzo</div>
-        <div id="secondo"> Scrivici qualcosa anche qua, coglione</div>
+        <div class="primo">Descrizione del social</div>
+        <div class="secondo">Descrizione della descrizione (?)</div>
     </div>
     <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
             src="{{ url_for('static', filename='Immagini/Giovi Natale.png') }}" alt="Giovi Natale"> </div>
@@ -22,6 +22,9 @@
 <section class="row rounded-pill d-flex align-items-center m-4 p-3">
     <div class="col scale fb-100 rounded-circle"> <img class="foto-Giovi"
             src="{{ url_for('static', filename='Immagini/Mago Giovino.png') }}" alt="Mago Giovino"> </div>
-    <p class="col scale fb-100">La droga da, la droga dajee</p>
+    <div class="col scale fb-100">
+        <div class="primo">Descrizione dell'autore</div>
+        <div class="secondo">Altra descrizione</div>
+    </div>
 </section>
 {% endblock %}

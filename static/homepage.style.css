@@ -7,6 +7,11 @@ body {
     color: #2F0147 !important;
 }
 
+header,
+footer {
+    font-size: larger;
+}
+
 div#contenuto a {
     color: #2F0147 !important;
     flex-basis: 100%;

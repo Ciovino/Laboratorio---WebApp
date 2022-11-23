@@ -7,6 +7,11 @@ body {
     color: #2F0147 !important;
 }
 
+header,
+footer {
+    font-size: larger;
+}
+
 header.navbar {
     background-color: #9C528B;
     border-bottom: 3px solid #2F0147;
