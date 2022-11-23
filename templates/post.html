@@ -10,7 +10,7 @@
 {% block presentazione_active %}" href="{{ url_for('presentazione') }}{% endblock %}
 
 {% block contenuto %}
-<article class="row p-2 m-1 post-bordo rounded-4">
+<article class="row p-2 m-1 post-bordo rounded-4 m-3">
     <aside class="col-lg-3 col-md-6">
         <a href="{{ url_for('post', id=post.id) }}">
             <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.fotoPost) }}">
