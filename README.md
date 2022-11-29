@@ -36,3 +36,15 @@ Estendere il social network aggiungendo la possibilità di visualizzare i singol
 - Associare un identificativo numerico univoco ai post salvati nell'applicazione, aggiungendo un opportuno campo alle strutture dati utilizzate;
 - Creare una route dinamica per i singoli post, utilizzando gli identificativi numerici dei post come parametro. Quando l'utente clicca sul post nella homepage, il sito web mostra una pagina dedicata dove viene visualizzato il post selezionato. La pagina in questione dovrà avere la stessa struttura della homepage (navbar, aside...), e dovrà visualizzare tutte le informazioni del post nel corpo principale;
 - Ristrutturare il codice HTML dell'intera applicazione utilizzando l'ereditarietà dei template offerta da jinja. Si definisca un template di base che includa la navbar e l'aside, e lo si riutilizzi estendendolo in tutte le pagine del sito web.
+  
+## Laboratorio #7: Form e Sessioni
+Implementare un meccanismo (rudimentale) di autenticazione, e aggiungere la possibilità di creare nuovi post da visualizzare nella home page.
+- Alla prima apertura del social, l'utente non è ancora autenticato, e non ha la possibilità di creare nuovi post. Per permettere l'autenticazione, aggiungere un bottone *Autenticati!* alla navbar;
+- Alla pressione del bottone *Autenticati!*, aprire un modale Bootstrap e permettere all'utente di selezionare, tramite opportuno form, uno degli username. Al click del bottone *Salva*, salvare lo username selezionato nella sessione corrente;
+- Quando un utente è autenticato, la navbar visualizza un messaggio di benvenuto, il bottone *+* diventa visibile, e i post dell'utente vengono evidenziati con uno sfondo colorato;
+- Alla pressione del bottote *+*, permettere all'utente (autenticato) di creare un nuovo post. In particolare, aprire un modale Bootstrap contenente un form con i seguenti campi:
+  - Un campo di testo (disabilitato e precompilato) con lo username dell'utente;
+  - Un' area di testo per inserire il testo del post (obbligatorio) con il suggerimento *Inserisci un testo per il tuo post*, una lunghezza minima di 30 caratteri e una massima di 200;
+  - Un campo per l'upload dell'immagine del post (opzionale);
+  - Un campo per selezionare la data del post (obbligatorio), la data deve essere posteriore o uguale alla data corrente.
+  All'invio del form, la relativa route in Flask si occuperà di aggiungere il post nell'apposita struttura dati, e visualizzerà la lista di post aggiornata nella home page.
