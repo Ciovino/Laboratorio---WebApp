@@ -56,9 +56,6 @@ section.row:hover {
 }
 
 footer {
-    position: absolute !important;
-    bottom: 0;
-    width: 100%;
     color: white;
     font-style: italic;
     background-color: #9C528B;

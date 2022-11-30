@@ -6,6 +6,30 @@
 <link href="{{ url_for('static', filename='homepage.style.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
+{% block autenticazione %}
+<button type="button" class="btn ms-3 autenticazione" data-bs-toggle="modal" data-bs-target="#login">
+    Autenticati!
+</button>
+
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Ciao
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block home_active %}active" aria-current="page" href="#{% endblock %}
 {% block presentazione_active %}" href="{{ url_for('presentazione') }}{% endblock %}
 

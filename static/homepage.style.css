@@ -1,5 +1,5 @@
 * {
-    margin: 0 !important;
+
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -12,6 +12,10 @@ footer {
     font-size: larger;
 }
 
+div#contenuto {
+    margin: 0;
+}
+
 div#contenuto a {
     color: #2F0147 !important;
     flex-basis: 100%;
@@ -21,6 +25,25 @@ div#contenuto a {
 header.navbar {
     background-color: #9C528B;
     border-bottom: 3px solid #2F0147;
+}
+
+button.autenticazione {
+    color: #FFF;
+    background-color: #610F7F;
+}
+
+button.autenticazione:hover {
+    color: #FFF;
+    background-color: #2F0147;
+}
+
+button.autenticazione:active {
+    color: #FFF !important;
+    background-color: #610F7F !important;
+}
+
+div#login {
+    color: #000;
 }
 
 #nuovo-post {
@@ -44,9 +67,6 @@ article.post-bordo {
 }
 
 footer {
-    position: absolute !important;
-    bottom: 0;
-    width: 100%;
     color: white;
     font-style: italic;
     background-color: #9C528B;
