@@ -7,26 +7,36 @@
 {% endblock %}
 
 {% block autenticazione %}
-<button type="button" class="btn ms-3 autenticazione" data-bs-toggle="modal" data-bs-target="#login">
-    Autenticati!
-</button>
+<div class="nav-item ps-4">
+    {% if session.login %}
+    <p class="m-0 fs-6 text-light fst-italic"> Benvenuto {{ session.user }}! </p>
+    {% else %}
+    <button type="button" class="btn autenticazione" data-bs-toggle="modal" data-bs-target="#login">
+        Autenticati!
+    </button>
 
-<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Ciao
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/login" method="POST" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <label for="user-login">Scegli l'utente</label>
+                    </div>
+                    <div class="modal-body">
+                        <select name="user-login" class="form-select" aria-label="Default select example">
+                            <option value="luigi">luigi</option>
+                            <option value="alberto">alberto</option>
+                            <option value="juan">juan</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn autenticazione" type="submit">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    {% endif %}
 </div>
 {% endblock %}
 
@@ -50,7 +60,8 @@
     <div class="col-lg-9">
         <main>
             {% for post in posts %}
-            <article class="row p-2 m-1 post-bordo rounded-4">
+            <article
+                class="row p-2 m-1 post-bordo rounded-4 {% if session.login and (session.user == post.username) %}bg-login{% endif %}">
                 <aside class="col-lg-3 col-md-6">
                     <a href="{{ url_for('post', id=post.id) }}">
                         <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.fotoPost) }}">
@@ -74,10 +85,12 @@
         </main>
     </div>
 
+    {% if session.login %}
     <a class="nuovo-post" href="NuovoPost.html" title="Aggiungi un post">
         <div id="nuovo-post" class="d-flex align-items-center justify-content-center rounded-circle">
             <p class="text-white text-decoration-none fs-2 mb-1"> + </p>
         </div>
     </a>
+    {% endif %}
 </div>
 {% endblock %}

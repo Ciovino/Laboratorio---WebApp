@@ -40,8 +40,8 @@ Estendere il social network aggiungendo la possibilità di visualizzare i singol
 ## Laboratorio #7: Form e Sessioni
 Implementare un meccanismo (rudimentale) di autenticazione, e aggiungere la possibilità di creare nuovi post da visualizzare nella home page.
 - [x] Alla prima apertura del social, l'utente non è ancora autenticato, e non ha la possibilità di creare nuovi post. Per permettere l'autenticazione, aggiungere un bottone *Autenticati!* alla navbar;
-- [ ] Alla pressione del bottone *Autenticati!*, aprire un modale Bootstrap e permettere all'utente di selezionare, tramite opportuno form, uno degli username. Al click del bottone *Salva*, salvare lo username selezionato nella sessione corrente;
-- [ ] Quando un utente è autenticato, la navbar visualizza un messaggio di benvenuto, il bottone *+* diventa visibile, e i post dell'utente vengono evidenziati con uno sfondo colorato;
+- [x] Alla pressione del bottone *Autenticati!*, aprire un modale Bootstrap e permettere all'utente di selezionare, tramite opportuno form, uno degli username. Al click del bottone *Salva*, salvare lo username selezionato nella sessione corrente;
+- [x] Quando un utente è autenticato, la navbar visualizza un messaggio di benvenuto, il bottone *+* diventa visibile, e i post dell'utente vengono evidenziati con uno sfondo colorato;
 - [ ] Alla pressione del bottote *+*, permettere all'utente (autenticato) di creare un nuovo post. In particolare, aprire un modale Bootstrap contenente un form con i seguenti campi:
   - Un campo di testo (disabilitato e precompilato) con lo username dell'utente;
   - Un' area di testo per inserire il testo del post (obbligatorio) con il suggerimento *Inserisci un testo per il tuo post*, una lunghezza minima di 30 caratteri e una massima di 200;

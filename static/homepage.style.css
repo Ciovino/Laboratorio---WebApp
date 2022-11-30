@@ -1,5 +1,4 @@
 * {
-
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -64,6 +63,10 @@ div#login {
 
 article.post-bordo {
     border: 2px solid #610F7F !important;
+}
+
+.bg-login {
+    background-color: #E2C2C6;
 }
 
 footer {
