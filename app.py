@@ -1,6 +1,7 @@
 # Import module
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, session, request, flash
 from flask_session import Session
+from datetime import datetime, date
 
 # Create the application
 app = Flask(__name__)
@@ -37,3 +38,40 @@ def presentazione():
 def post(id):
     post = [p for p in posts if p['id'] == id][0]
     return render_template('post.html', post=post)
+
+@app.route('/newpost', methods=['POST'])
+def newPost():
+    new_post = request.form.to_dict()
+
+    # postid
+    new_post['id'] = posts[-1]['id'] + 1
+
+    # fotoPost
+    post_image = request.files['fotoPost']
+
+    if post_image :
+        post_image_name = 'Immagini/img' + new_post['id'] + '.jpg'
+        post_image.save('static/' + post_image_name)
+    else:
+        post_image_name = 'Immagini/foto.png'
+    
+    new_post['fotoPost'] = post_image_name
+
+    # fotoProfilo
+    new_post['fotoProfilo'] = 'Immagini/Profilo.png'
+
+    # username
+    new_post['username'] = session['user']
+
+    # giorniFa
+    data_form = new_post.get('giorniFa')
+
+    if data_form > datetime.now().strftime('%Y-%m-%d'):
+        # Data non valida
+        flash('Impossibile creare il post', 'danger')
+        return redirect(url_for('homepage'))
+
+    posts.append(new_post)
+    
+    flash('Post creato correttamente', 'success')
+    return redirect(url_for('homepage'))

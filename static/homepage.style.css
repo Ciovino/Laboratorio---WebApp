@@ -45,18 +45,18 @@ div#login {
     color: #000;
 }
 
-#nuovo-post {
-    background-color: #B9929F;
-    width: 55px;
-    height: 55px;
+button.nuovo-post {
     position: fixed;
     bottom: 3%;
     right: 3%;
+    background-color: #B9929F;
+    width: 55px;
+    height: 55px;
     opacity: 0.5;
     transition: 0.5s;
 }
 
-#nuovo-post:hover {
+button.nuovo-post:hover {
     opacity: 1;
     background-color: #2F0147;
 }

@@ -1,15 +1,13 @@
-{% extends "base.html" %}
-
-{% block titolo %}Homepage{% endblock %}
+{% extends "base.html" %} {% block titolo %}Homepage{% endblock %}
 
 {% block css %}
-<link href="{{ url_for('static', filename='homepage.style.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='homepage.style.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block autenticazione %}
 <div class="nav-item ps-4">
     {% if session.login %}
-    <p class="m-0 fs-6 text-light fst-italic"> Benvenuto {{ session.user }}! </p>
+    <p class="m-0 fs-6 text-light fst-italic">Benvenuto {{ session.user }}!</p>
     {% else %}
     <button type="button" class="btn autenticazione" data-bs-toggle="modal" data-bs-target="#login">
         Autenticati!
@@ -41,7 +39,8 @@
 {% endblock %}
 
 {% block home_active %}active" aria-current="page" href="#{% endblock %}
-{% block presentazione_active %}" href="{{ url_for('presentazione') }}{% endblock %}
+{% block presentazione_active %}" href="{{ url_for('presentazione') }} {%
+endblock %}
 
 {% block contenuto %}
 <div id="contenuto" class="row mt-3 mb-3">
@@ -49,10 +48,8 @@
         <aside>
             <div class="d-flex flex-lg-column flex-sm-row justify-content-between">
                 <a class="p-2 mt-lg-3 text-lg-start" href="oggi.html" title="I post di oggi">Oggi</a>
-                <a class="p-2 text-lg-start" href="settimana.html" title="I post della settimana">Questa
-                    settimana</a>
-                <a class="p-2 text-lg-start" href="mese.html" title="I post del mese">Questo
-                    mese</a>
+                <a class="p-2 text-lg-start" href="settimana.html" title="I post della settimana">Questa settimana</a>
+                <a class="p-2 text-lg-start" href="mese.html" title="I post del mese">Questo mese</a>
             </div>
         </aside>
     </div>
@@ -64,21 +61,22 @@
                 class="row p-2 m-1 post-bordo rounded-4 {% if session.login and (session.user == post.username) %}bg-login{% endif %}">
                 <aside class="col-lg-3 col-md-6">
                     <a href="{{ url_for('post', id=post.id) }}">
-                        <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.fotoPost) }}">
+                        <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.fotoPost) }}" />
                     </a>
                 </aside>
 
-                <div class=" col-lg-9 col-md-6 p-2">
+                <div class="col-lg-9 col-md-6 p-2">
                     <div class="row d-flex align-items-center">
                         <div class="col-9 d-flex align-items-center">
                             <img class="rounded-circle" src="{{ url_for('static', filename=post.fotoProfilo) }}"
-                                alt="Foto profilo">
-                            <h2 class="fs-4"> @{{ post.username }} </h2>
+                                alt="Foto profilo" />
+                            <h2 class="fs-4">@{{ post.username }}</h2>
                         </div>
-                        <h3 class="col-3 fs-6"> {{ post.giorniFa }} giorni fa </h3>
+                        <h3 class="col-3 fs-6">{{ post.giorniFa }} giorni fa
+                        </h3>
                     </div>
 
-                    <p class="row fs-6"> {{ post.contenuto }} </p>
+                    <p class="row fs-6">{{ post.contenuto }}</p>
                 </div>
             </article>
             {% endfor %}
@@ -86,11 +84,43 @@
     </div>
 
     {% if session.login %}
-    <a class="nuovo-post" href="NuovoPost.html" title="Aggiungi un post">
-        <div id="nuovo-post" class="d-flex align-items-center justify-content-center rounded-circle">
-            <p class="text-white text-decoration-none fs-2 mb-1"> + </p>
+    <button type="button" class="btn nuovo-post rounded-circle text-white fs-4" data-bs-toggle="modal"
+        data-bs-target="#newPost">+</button>
+
+    <div class="modal fade" id="newPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/newpost" method="POST" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <p class="text-center">Crea un nuovo post</p>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row d-flex align-items-center mb-2">
+                            <labal for="user" class="col-2"> Utente:</labal>
+                            <input name="user" class="form-control col" type="text" placeholder="@{{ session.user }}"
+                                disabled>
+                        </div>
+                        <div class="row d-flex align-items-start mb-2">
+                            <labal for="contenuto" class="col-2 mt-2">Post:</labal>
+                            <textarea name="contenuto" class="form-control col" rows="3" required minlength="30"
+                                maxlength="200"></textarea>
+                        </div>
+                        <div class="row d-flex align-items-start mb-2">
+                            <labal for="fotoPost" class="col-2 mt-2">Foto:</labal>
+                            <input name="fotoPost" class="form-control col" type="file" accept=".jpg,.jpeg,.png">
+                        </div>
+                        <div class="row d-flex align-items-start">
+                            <labal for="giorniFa" class="col-2 mt-2">Data:</labal>
+                            <input type="date" name="giorniFa" class="form-control col" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn autenticazione" type="submit">Crea</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </a>
+    </div>
     {% endif %}
 </div>
 {% endblock %}
