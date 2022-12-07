@@ -59,3 +59,15 @@ Implementare un meccanismo (rudimentale) di autenticazione, e aggiungere la poss
     -   Un campo per l'upload dell'immagine del post (opzionale);
     -   Un campo per selezionare la data del post (obbligatorio), la data deve essere posteriore o uguale alla data corrente.
         All'invio del form, la relativa route in Flask si occuperà di aggiungere il post nell'apposita struttura dati, e visualizzerà la lista di post aggiornata nella home page.
+
+## Laboratorio #8: Database
+
+Rendere persistenti i dati del social network attraverso l'utilizzo di un databse, aggiungendo la possibilità da parte degli utenti di lasciare commenti ai post.
+
+-   [ ] Creare un database SQLite, che dovrà avere tre tabelle, opportunamente collegate tra loro:
+    -   [ ] Tabella _UTENTI_(**id**, nickname, password, immagine*profilo). Il campo \_id* sarà univoco per ogni utente, e fungerà da chiave primaria. Il campo _immagine_profilo_ conterrà il percorso su disco dell'immagine di profilo dell'utente;
+    -   [ ] Tabella _POST_(**id**, data*pubblicazione, testo, immagine_post\*, id_utente). Il campo numerico \_id* sarà univoco per ogni post,e fungerà da chiave primaria. Il campo _immagine_profilo_ (opzionale) conterrà il percorso su disco dell'immagine del post. Il campo numerico _id_utente_ sarà la chiave esterna che permettera di collegare un post all'utente che lo ha creato;
+    -   [ ] Tabella _COMMENTI_(**id**, data*pubblicazione, testo, id_post, id_utente). Il campo numerico \_id* sarà univoco per ogni post, e fungerà da chiave primaria. I campi numerici _id_post_ e _id_utente_ saranno le chiave esterne che permettono di collegare un commento al suo post e all'utente che lo ha inserito.
+-   [ ] Includere il database creato nel progetto, e modificare il codice dell'applicazione affinché i post visualizzati dal social network siano recuperati dal databse (creare un file separato che contiene tutte le informazioni per accedere al database);
+-   [ ] Modificare l'applicazione in modo che la creazione di un nuovo post utilizzi il database per salvare le informazioni;
+-   [ ] Nella pagina di dettaglio dei singoli post, aggiungere la possibilità per gli utenti autenticati di lasciare del commenti. Occorre aggiungere un form per la creazione dei commenti, composto da una singola area di test ed un bottone _'Invia'_. Tale form non sarà visibile per gli utenti non autenticati. La stessa pagina di dettaglio mostrerà anche tutti i commenti già presenti per il post in questione, visualizzandone l'autore, il testo e la data di creazione. La lista dei commenti sarà visibile sempre, anche per gli utenti non autenticati.
