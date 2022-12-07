@@ -1,7 +1,7 @@
 # Import module
 from flask import Flask, render_template, redirect, url_for, session, request, flash
 from flask_session import Session
-from datetime import datetime, date
+from datetime import datetime
 
 # Create the application
 app = Flask(__name__)
@@ -9,13 +9,13 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
 Session(app)
 
-posts = [{'id': 1, 'fotoPost':'Immagini/img1.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'luigi', 'giorniFa':2, 
+posts = [{'id': 1, 'fotoPost':'Immagini/img1.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'luigi', 'giorniFa':'2 giorni fa', 
             'contenuto':'''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis enim ut egestas lacinia. 
             Vestibulum sodales at odio non semper. Donec mattis pellentesque rutrum.'''},
-        {'id': 2, 'fotoPost':'Immagini/img2.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'alberto', 'giorniFa':4,
+        {'id': 2, 'fotoPost':'Immagini/img2.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'alberto', 'giorniFa':'4 giorni fa',
             'contenuto':'''Nullam nunc eros, sagittis eu gravida vel, interdum a tellus. Praesent quis lectus semper, 
             interdum mauris eu, molestie ligula. Morbi sagittis ullamcorper blandit.'''},
-        {'id': 3, 'fotoPost':'Immagini/img3.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'juan', 'giorniFa':4, 
+        {'id': 3, 'fotoPost':'Immagini/img3.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'juan', 'giorniFa':'4 giorni fa', 
             'contenuto':'''Vestibulum quis lectus nec odio mollis consectetur vel non libero. In ac leo dolor. Nunc 
             consequat quam et leo pretium porta.'''}]
 
@@ -70,6 +70,17 @@ def newPost():
         # Data non valida
         flash('Impossibile creare il post', 'danger')
         return redirect(url_for('homepage'))
+    else:
+        # Calcolare quanti giorni sono passati dalla pubblicazione del post
+        dataPost = datetime.strptime(data_form, '%Y-%m-%d')
+        giorni = datetime.now() - dataPost
+
+        if giorni.days == 1:
+            new_post['giorniFa'] = 'Ieri'
+        elif giorni.days == 0:
+            new_post['giorniFa'] = 'Oggi'
+        else:
+            new_post['giorniFa'] = f'{giorni.days} giorni fa'
 
     posts.append(new_post)
     
