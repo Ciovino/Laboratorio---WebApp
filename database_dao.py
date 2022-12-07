@@ -12,13 +12,15 @@ def get_all_posts():
     # Query sql
     query = '''SELECT u.nickname, p.id, p.immagine_post, u.immagine_profilo, p.data_pubblicazione, p.testo 
             FROM utenti u, post p 
-            WHERE u.id = p.id_utente'''
+            WHERE u.id = p.id_utente
+            ORDER BY p.data_pubblicazione DESC'''
 
     # Esegui query
     cursor.execute(query)
 
     # Recupera risultati
-    posts = cursor.fetchall()
+    cur = cursor.fetchall()
+    posts = [dict(row) for row in cur] # Copio in un dizionario, per poter cambiare i valori in seguito
 
     # Chiudi connessione e cursore
     cursor.close()
@@ -50,7 +52,7 @@ def get_post_by_id(id):
     cursor.close()
     connection.close()
     
-    return post
+    return dict(post)
 
 def get_next_post_id():
     # Crea una connessione al database

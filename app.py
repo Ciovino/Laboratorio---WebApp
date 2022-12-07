@@ -15,6 +15,9 @@ Session(app)
 def homepage():
     posts = db_dao.get_all_posts()
 
+    for post in posts:
+        post['data_pubblicazione'] = get_giorni_mancanti(post['data_pubblicazione'])
+
     return render_template('homepage.html', posts=posts)
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -30,6 +33,8 @@ def presentazione():
 @app.route('/posts/<int:id>')
 def post(id):
     post = db_dao.get_post_by_id(id)
+
+    post['data_pubblicazione'] = get_giorni_mancanti(post['data_pubblicazione'])
 
     return render_template('post.html', post=post)
 
@@ -70,3 +75,14 @@ def newPost():
         flash('Post creato correttamente', 'success')
         
     return redirect(url_for('homepage'))
+
+# Calcolo di quanti giorni sono passati dalla pubblicazione del post
+def get_giorni_mancanti(data):
+    giorni = (datetime.now() - datetime.strptime(data, '%Y-%m-%d')).days
+
+    if giorni == 0:
+        return 'Oggi'
+    elif giorni == 1:
+        return 'Ieri'
+    else:
+        return f'{giorni} giorni fa'
