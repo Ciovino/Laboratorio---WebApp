@@ -35,24 +35,36 @@ def get_post_by_id(id):
     connection.row_factory = sqlite3.Row
 
     # Crea un cursore
-    cursor = connection.cursor()
+    cursore_post = connection.cursor()
+    cursore_commenti = connection.cursor()
 
     # Query sql
-    query = '''SELECT u.nickname, p.id, p.immagine_post, u.immagine_profilo, p.data_pubblicazione, p.testo
+    query_post = '''SELECT u.nickname, p.id, p.immagine_post, u.immagine_profilo, p.data_pubblicazione, p.testo
             FROM utenti u, post p
             WHERE p.id = ? AND u.id = p.id_utente'''
+    
+    query_commenti = '''SELECT u.immagine_profilo, u.nickname, c.testo, c.data_pubblicazione
+                        FROM commenti c, utenti u
+                        WHERE c.id_post = ? AND c.id_utente = u.id
+                        ORDER BY c.data_pubblicazione DESC'''
 
     # Esegui query
-    cursor.execute(query, (id,))
+    cursore_post.execute(query_post, (id,))
+    cursore_commenti.execute(query_commenti, (id,))
 
     # Recupera risultati
-    post = cursor.fetchone()
+    post = cursore_post.fetchone()
+    commenti = cursore_commenti.fetchall()
 
     # Chiudi connessione e cursore
-    cursor.close()
+    cursore_post.close()
+    cursore_commenti.close()
     connection.close()
+
+    post = dict(post)
+    commenti = [dict(row) for row in commenti]
     
-    return dict(post)
+    return [post, commenti]
 
 def get_next_post_id():
     # Crea una connessione al database

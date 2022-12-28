@@ -29,8 +29,8 @@
         <div class="row d-flex align-items-center">
             <div class="col-9 d-flex align-items-center">
                 <div class="foto-profilo rounded-circle me-1">
-                    <img class="foto-profilo" src=" {{ url_for('static',
-                                    filename=post.immagine_profilo) }}" alt="Foto profilo" />
+                    <img class="foto-profilo" src=" {{ url_for('static',filename=post.immagine_profilo) }}"
+                        alt="Foto profilo" />
                 </div>
                 <h2 class="fs-4">@{{ post.nickname }}</h2>
             </div>
@@ -41,4 +41,24 @@
         <p class="mt-2 row fs-5">{{ post.testo }}</p>
     </div>
 </article>
+
+<!-- Commenti -->
+{% if not nocomment %}
+<div class="row m-3 p-2 post-bordo rounded-4">
+    <h2 class="col-3 fs-3 m-2 mb-4 fw-bold">Commenti</h2>
+    {% for commento in commenti %}
+    <div class="row m-0 pb-2 d-flex align-items-center">
+        <div class="col-2 d-flex align-items-center">
+            <div class="foto-commento rounded-circle me-1">
+                <img class="foto-commento" src=" {{ url_for('static',filename=commento.immagine_profilo) }}"
+                    alt="Foto profilo" />
+            </div>
+            <h3 class="fs-5">@{{ commento.nickname }}</h3>
+        </div>
+        <p class="col-8 fs-5">{{ commento.testo }}</p>
+        <h3 class="col-2 fs-6">{{ commento.data_pubblicazione }}</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock %}

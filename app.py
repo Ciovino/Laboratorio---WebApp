@@ -32,11 +32,18 @@ def presentazione():
 
 @app.route('/posts/<int:id>')
 def post(id):
-    post = db_dao.get_post_by_id(id)
+    post_completo = db_dao.get_post_by_id(id)
+
+    post = post_completo[0]
+    commenti = post_completo[1]
 
     post['data_pubblicazione'] = get_giorni_mancanti(post['data_pubblicazione'])
+    for commento in commenti:
+        commento['data_pubblicazione'] = get_giorni_mancanti(commento['data_pubblicazione'])
+    
+    nocomment = (len(commenti) == 0)
 
-    return render_template('post.html', post=post)
+    return render_template('post.html', post=post, nocomment=nocomment, commenti=commenti)
 
 @app.route('/newpost', methods=['POST'])
 def newPost():

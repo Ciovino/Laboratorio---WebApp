@@ -17,7 +17,7 @@ header.navbar {
     border-bottom: 3px solid #2f0147;
 }
 
-article.post-bordo {
+.post-bordo {
     border: 2px solid #610f7f !important;
 }
 
@@ -31,10 +31,22 @@ article.post-bordo {
     overflow: hidden;
 }
 
+.foto-commento {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
 img.foto-profilo {
     width: auto;
     height: 100%;
     margin-left: -25px;
+}
+
+img.foto-commento {
+    width: auto;
+    height: 100%;
+    margin-left: -10px;
 }
 
 footer {
