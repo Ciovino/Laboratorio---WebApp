@@ -5,37 +5,17 @@
 {% endblock %}
 
 {% block autenticazione %}
+{% if session.login %}
 <div class="nav-item ps-4">
-    {% if session.login %}
     <p class="m-0 fs-6 text-light fst-italic">Benvenuto {{ session.user }}!</p>
-    {% else %}
-    <button type="button" class="btn autenticazione" data-bs-toggle="modal" data-bs-target="#login">
-        Autenticati!
-    </button>
-
-    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="/login" method="POST" enctype="multipart/form-data">
-                    <div class="modal-header">
-                        <label for="user-login">Scegli l'utente</label>
-                    </div>
-                    <div class="modal-body">
-                        <select name="user-login" class="form-select" aria-label="Default select example">
-                            <option value="luigi">luigi</option>
-                            <option value="alberto">alberto</option>
-                            <option value="juan">juan</option>
-                        </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn autenticazione" type="submit">Login</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {% endif %}
 </div>
+{% else %}
+<div class="navbar-nav">
+    <a class="nav-link active nav-item ms-5 p-2" href="#" title="Login">Login</a>
+    <a class="nav-link active nav-item p-2" href="#" title="Registrati">Registrati</a>
+</div>
+{% endif %}
+
 {% endblock %}
 
 {% block home_active %}active" aria-current="page" href="#{% endblock %}
@@ -48,7 +28,8 @@ endblock %}
         <aside>
             <div class="d-flex flex-lg-column flex-sm-row justify-content-between">
                 <a class="p-2 mt-lg-3 text-lg-start" href="oggi.html" title="I post di oggi">Oggi</a>
-                <a class="p-2 text-lg-start" href="settimana.html" title="I post della settimana">Questa settimana</a>
+                <a class="p-2 text-lg-start" href="settimana.html" title="I post della settimana">Questa
+                    settimana</a>
                 <a class="p-2 text-lg-start" href="mese.html" title="I post del mese">Questo mese</a>
             </div>
         </aside>

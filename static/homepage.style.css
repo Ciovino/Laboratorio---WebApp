@@ -27,25 +27,6 @@ header.navbar {
     border-bottom: 3px solid #2f0147;
 }
 
-button.autenticazione {
-    color: #fff;
-    background-color: #610f7f;
-}
-
-button.autenticazione:hover {
-    color: #fff;
-    background-color: #2f0147;
-}
-
-button.autenticazione:active {
-    color: #fff !important;
-    background-color: #610f7f !important;
-}
-
-div#login {
-    color: #000;
-}
-
 button.nuovo-post {
     position: fixed;
     bottom: 3%;

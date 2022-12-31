@@ -1,14 +1,21 @@
 # Import module
 from flask import Flask, render_template, redirect, url_for, session, request, flash
+from flask_login import LoginManager
 from flask_session import Session
 from datetime import datetime
 import database_dao as db_dao
+from user_model import User
 
 # Create the application
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'shh..itsasecret'
+
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
 Session(app)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 # Define route and web pages
 @app.route('/')
@@ -100,6 +107,14 @@ def newPost():
         flash('Post creato correttamente', 'success')
         
     return redirect(url_for('homepage'))
+
+@login_manager.user_loader
+def user_load(user_id):
+    user_from_db = db_dao.get_user_by_id(user_id)
+
+    user = User(user_from_db['id'], user_from_db['nickname'], user_from_db['password'], user_from_db['immagine_profilo'])
+
+    return user
 
 # Calcolo di quanti giorni sono passati dalla pubblicazione del post
 def get_giorni_mancanti(data):

@@ -85,6 +85,26 @@ def get_next_post_id():
 
     return int(id[0]) + 1
 
+def get_user_by_id(id):
+    # Crea una connessione al database
+    connection = sqlite3.connect('databases/social.database.db')
+    connection.row_factory = sqlite3.Row
+
+    # Crea un cursore
+    cursor = connection.cursor()
+
+    query = 'SELECT * FROM utenti WHERE id = ?'
+
+    cursor.execute(query, (id,))
+
+    user = cursor.fetchone()
+
+    # Chiudi connessione e cursore
+    cursor.close()
+    connection.close()
+
+    return user
+
 def get_user_id(nickname):
     # Crea una connessione al database
     connection = sqlite3.connect('databases/social.database.db')
