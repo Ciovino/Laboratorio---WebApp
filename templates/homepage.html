@@ -11,11 +11,10 @@
 </div>
 {% else %}
 <div class="navbar-nav">
-    <a class="nav-link active nav-item ms-5 p-2" href="#" title="Login">Login</a>
-    <a class="nav-link active nav-item p-2" href="#" title="Registrati">Registrati</a>
+    <a class="nav-link nav-item ms-5 p-2" href="#" title="Login">Login</a>
+    <a class="nav-link nav-item p-2" href="{{ url_for('signup') }}" title="Registrati">Registrati</a>
 </div>
 {% endif %}
-
 {% endblock %}
 
 {% block home_active %}active" aria-current="page" href="#{% endblock %}

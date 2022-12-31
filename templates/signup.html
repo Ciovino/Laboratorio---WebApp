@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block titolo %}Registrati{% endblock %}
+
+{% block css %}
+<link href="{{ url_for('static', filename='signup.style.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block home_active %}" href="{{ url_for('homepage') }} {% endblock %}
+{% block presentazione_active %}" href="{{ url_for('presentazione') }} {%
+endblock %}
+
+{% block autenticazione %}
+<div class="navbar-nav">
+    <a class="nav-link nav-item ms-5 p-2" href="#" title="Login">Login</a>
+    <a class="nav-link active nav-item p-2" href="{{ url_for('signup') }}" title="Registrati">Registrati</a>
+</div>
+{% endblock %}
+
+{% block contenuto %}
+<div id="creaUtente">
+    <h2 class="text-center mb-4"> Registrati </h2>
+
+    <div class="row justify-content-center">
+        <form action="/newuser" method="POST" enctype="multipart/form-data" class="col-4 bordo-form rounded-4 p-2">
+            <labal for="nickname"> Nickname:</labal>
+            <input name="nickname" pattern="^[a-zA-Z]{4,15}$" class="form-control" minlength="4" maxlength="14"
+                required>
+
+            <labal for="password"> Password:</labal>
+            <input type="password" name="password" class="form-control" minlength="7" required>
+
+            <label for="immagine_profilo">Immagine Profilo</label>
+            <input type="file" name="immagine_profilo" class="form-control" accept=".jpg,.jpeg,.png">
+
+            <div class="d-flex justify-content-center">
+                <button class="btn mt-3 m-2 crea" type="submit">Crea</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

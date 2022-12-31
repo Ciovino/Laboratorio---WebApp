@@ -5,6 +5,7 @@ from flask_session import Session
 from datetime import datetime
 import database_dao as db_dao
 from user_model import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Create the application
 app = Flask(__name__)
@@ -26,6 +27,43 @@ def homepage():
         post['data_pubblicazione'] = get_giorni_mancanti(post['data_pubblicazione'])
 
     return render_template('homepage.html', posts=posts)
+
+@app.route('/registrati')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/newuser', methods=['POST'])
+def newUser():
+    nickname = request.form.get('nickname')
+    password = request.form.get('password')
+    immagine_profilo = request.files['immagine_profilo']
+
+    # Utente già registrato
+    existing_user = db_dao.existing_user(nickname)
+
+    if existing_user:
+        flash('C\'è già un utente registrato con questa mail', 'danger')
+        return redirect(url_for('signup'))
+    else:
+        # Immagine profilo
+        if immagine_profilo :
+            nome_immagine_profilo = 'Immagini/Profilo/' + nickname + '.png'
+            immagine_profilo.save('static/' + nome_immagine_profilo)
+        else:
+            nome_immagine_profilo = 'Immagini/Profilo/_default.png'
+        
+        immagine_profilo = nome_immagine_profilo
+
+        new_user = {'nickname': nickname, 'password': generate_password_hash(password, method='sha256'), 'immagine_profilo': immagine_profilo}
+
+        success = db_dao.add_new_user(new_user)
+
+        if success:
+            flash('Utente registrato correttamente', 'success')
+            return redirect(url_for('homepage'))
+        else:
+            flash('Impossibile registrare l\'utente al momento', 'danger')
+            return redirect(url_for('signup'))
 
 @app.route('/login', methods=['POST', 'GET'])
 def user_login():

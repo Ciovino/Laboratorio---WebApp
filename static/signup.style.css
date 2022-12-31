@@ -1,0 +1,64 @@
+* {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+    color: #2f0147 !important;
+}
+
+header.navbar {
+    background-color: #9c528b;
+    border-bottom: 3px solid #2f0147;
+}
+
+header,
+footer {
+    font-size: larger;
+}
+
+#creaUtente {
+    margin: 6% 0px 12% 0px;
+}
+
+.bordo-form {
+    border: 2px solid #610f7f !important;
+}
+
+button.crea {
+    color: #fff;
+    background-color: #610f7f;
+}
+
+button.crea:hover {
+    color: #fff;
+    background-color: #2f0147;
+}
+
+button.crea:active {
+    color: #fff !important;
+    background-color: #610f7f !important;
+}
+
+footer {
+    color: white;
+    font-style: italic;
+    background-color: #9c528b;
+    border-top: 3px solid #2f0147;
+}
+
+div.titolo > p {
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline #2f0147;
+}
+
+.link-footer {
+    text-decoration: none;
+    color: white;
+}
+
+.link-footer:hover {
+    color: white;
+}

@@ -105,6 +105,25 @@ def get_user_by_id(id):
 
     return user
 
+def existing_user(nickname):
+    # Crea una connessione al database
+    connection = sqlite3.connect('databases/social.database.db')
+
+    # Crea un cursore
+    cursor = connection.cursor()
+
+    query = 'SELECT COUNT(*) FROM utenti WHERE nickname = ?'
+
+    cursor.execute(query, (nickname,))
+
+    value = int(cursor.fetchone()[0])
+
+    # Chiudi connessione e cursore
+    cursor.close()
+    connection.close()
+
+    return (value != 0)
+
 def get_user_id(nickname):
     # Crea una connessione al database
     connection = sqlite3.connect('databases/social.database.db')
@@ -123,6 +142,34 @@ def get_user_id(nickname):
     connection.close()
 
     return int(id[0])
+
+def add_new_user(user):
+    # Crea una connessione al database
+    connection = sqlite3.connect('databases/social.database.db')
+    connection.row_factory = sqlite3.Row
+
+    # Crea un cursore
+    cursor = connection.cursor()
+
+    # Query
+    query = '''INSERT INTO utenti(nickname, password, immagine_profilo) VALUES(?,?,?)'''
+
+    success = False
+
+    try:
+        cursor.execute(query, (user['nickname'], user['password'], user['immagine_profilo']))
+        connection.commit()
+        success = True
+    except Exception as e:
+        print('ERROR', str(e))
+        # if something goes wrong: rollback
+        connection.rollback()
+
+    # Chiudi connessione e cursore
+    cursor.close()
+    connection.close()
+
+    return success
 
 def add_new_post(post):
     # Crea una connessione al database
