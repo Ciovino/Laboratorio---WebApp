@@ -76,7 +76,7 @@ Rendere persistenti i dati del social network attraverso l'utilizzo di un databs
 
 Implementare un meccanismo di autenticazione, utilizzando il modulo Flask-Login.
 
-- [ ] Nel database, aggiungere un vincolo "*UNIQUE*" al campo username della tabella *UTENTI*, in modo da escludere totalmente la possibilità di avere due utenti con lo stesso username;
+- [x] Nel database, aggiungere un vincolo "*UNIQUE*" al campo username della tabella *UTENTI*, in modo da escludere totalmente la possibilità di avere due utenti con lo stesso username;
 - [ ] Sostituire il meccanismo di autenticazione rudimentale con un meccanismo di registrazione/autenticazione basato su Flask-Login:
   - [ ] Eliminare il bottone "*Autenticati!*" dalla navbar e il relativo modale, e aggiungere un link/bottone per effettuare il login nella piattaforma e un altro link/bottone per registrarsi;
   - [ ] Alla pressione del bottone per la registrazione, reindirizzare l'utente ad una pagina di registrazione dedicata. Questa pagina conterrà un form che permetterà l'inserimento di tutti i campi necessari per registrare un nuovo utente nella piattaforma, con opportune validazioni lato client. Contestualmente, creare una route dedicata sul server che si occupi di raccogliere i dati inseriti nel form e aggiungere il nuovo utente nel database;
