@@ -58,25 +58,27 @@ endblock %}
         <main>
             {% for post in posts %}
             <article
-                class="row p-2 m-1 post-bordo rounded-4 {% if session.login and (session.user == post.username) %}bg-login{% endif %}">
+                class="row p-2 m-1 post-bordo rounded-4 {% if session.login and (session.user == post.nickname) %}bg-login{% endif %}">
                 <aside class="col-lg-3 col-md-6">
                     <a href="{{ url_for('post', id=post.id) }}">
-                        <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.fotoPost) }}" />
+                        <img class="rounded-4 w-100" src="{{ url_for('static', filename=post.immagine_post) }}" />
                     </a>
                 </aside>
 
                 <div class="col-lg-9 col-md-6 p-2">
                     <div class="row d-flex align-items-center">
                         <div class="col-9 d-flex align-items-center">
-                            <img class="rounded-circle" src="{{ url_for('static', filename=post.fotoProfilo) }}"
-                                alt="Foto profilo" />
-                            <h2 class="fs-4">@{{ post.username }}</h2>
+                            <div class="foto-profilo rounded-circle me-1">
+                                <img class="foto-profilo" src=" {{ url_for('static',
+                                    filename=post.immagine_profilo) }}" alt="Foto profilo" />
+                            </div>
+                            <h2 class="fs-4">@{{ post.nickname }}</h2>
                         </div>
-                        <h3 class="col-3 fs-6 text-center">{{ post.giorniFa }}
+                        <h3 class="col-3 fs-6 text-center">{{ post.data_pubblicazione }}
                         </h3>
                     </div>
 
-                    <p class="row fs-6">{{ post.contenuto }}</p>
+                    <p class="row fs-6">{{ post.testo }}</p>
                 </div>
             </article>
             {% endfor %}
@@ -96,22 +98,22 @@ endblock %}
                     </div>
                     <div class="modal-body">
                         <div class="row d-flex align-items-center mb-2">
-                            <labal for="user" class="col-2"> Utente:</labal>
-                            <input name="user" class="form-control col" type="text" placeholder="@{{ session.user }}"
-                                disabled>
+                            <labal for="nickname" class="col-2"> Utente:</labal>
+                            <input name="nickname" class="form-control col" type="text"
+                                placeholder="@{{ session.user }}" disabled>
                         </div>
                         <div class="row d-flex align-items-start mb-2">
-                            <labal for="contenuto" class="col-2 mt-2">Post:</labal>
-                            <textarea name="contenuto" class="form-control col" rows="3" required minlength="30"
+                            <labal for="testo" class=" col-2 mt-2">Post:</labal>
+                            <textarea name="testo" class="form-control col" rows="3" required minlength="30"
                                 maxlength="200"></textarea>
                         </div>
                         <div class="row d-flex align-items-start mb-2">
-                            <labal for="fotoPost" class="col-2 mt-2">Foto:</labal>
-                            <input name="fotoPost" class="form-control col" type="file" accept=".jpg,.jpeg,.png">
+                            <labal for="immagine_post" class="col-2 mt-2">Foto:</labal>
+                            <input name="immagine_post" class="form-control col" type="file" accept=".jpg,.jpeg,.png">
                         </div>
                         <div class="row d-flex align-items-start">
-                            <labal for="giorniFa" class="col-2 mt-2">Data:</labal>
-                            <input type="date" name="giorniFa" class="form-control col" required>
+                            <labal for="data_pubblicazione" class="col-2 mt-2">Data:</labal>
+                            <input type="date" name="data_pubblicazione" class="form-control col" required>
                         </div>
                     </div>
                     <div class="modal-footer">

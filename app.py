@@ -2,6 +2,7 @@
 from flask import Flask, render_template, redirect, url_for, session, request, flash
 from flask_session import Session
 from datetime import datetime
+import database_dao as db_dao
 
 # Create the application
 app = Flask(__name__)
@@ -9,19 +10,14 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
 Session(app)
 
-posts = [{'id': 1, 'fotoPost':'Immagini/img1.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'luigi', 'giorniFa':'2 giorni fa', 
-            'contenuto':'''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis enim ut egestas lacinia. 
-            Vestibulum sodales at odio non semper. Donec mattis pellentesque rutrum.'''},
-        {'id': 2, 'fotoPost':'Immagini/img2.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'alberto', 'giorniFa':'4 giorni fa',
-            'contenuto':'''Nullam nunc eros, sagittis eu gravida vel, interdum a tellus. Praesent quis lectus semper, 
-            interdum mauris eu, molestie ligula. Morbi sagittis ullamcorper blandit.'''},
-        {'id': 3, 'fotoPost':'Immagini/img3.jpg', 'fotoProfilo':'Immagini/Profilo.png', 'username':'juan', 'giorniFa':'4 giorni fa', 
-            'contenuto':'''Vestibulum quis lectus nec odio mollis consectetur vel non libero. In ac leo dolor. Nunc 
-            consequat quam et leo pretium porta.'''}]
-
 # Define route and web pages
 @app.route('/')
 def homepage():
+    posts = db_dao.get_all_posts()
+
+    for post in posts:
+        post['data_pubblicazione'] = get_giorni_mancanti(post['data_pubblicazione'])
+
     return render_template('homepage.html', posts=posts)
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -36,53 +32,82 @@ def presentazione():
 
 @app.route('/posts/<int:id>')
 def post(id):
-    post = [p for p in posts if p['id'] == id][0]
-    return render_template('post.html', post=post)
+    post_completo = db_dao.get_post_by_id(id)
+
+    post = post_completo[0]
+    commenti = post_completo[1]
+
+    post['data_pubblicazione'] = get_giorni_mancanti(post['data_pubblicazione'])
+    for commento in commenti:
+        commento['data_pubblicazione'] = get_giorni_mancanti(commento['data_pubblicazione'])
+    
+    numcomment = len(commenti)
+
+    return render_template('post.html', post=post, numcomment=numcomment, commenti=commenti)
+
+@app.route('/newcomment', methods=['POST'])
+def newComment():
+    # testo, id_post
+    new_comment = request.form.to_dict()
+
+    # id_utente
+    new_comment['id_utente'] = db_dao.get_user_id(session['user'])
+
+    # data_pubblicazione
+    new_comment['data_pubblicazione'] = datetime.now().strftime('%Y-%m-%d')
+
+    if not db_dao.add_new_comment(new_comment) :
+        flash('Impossibile aggiungere un commento', 'danger')
+    else:
+        flash('Commento aggiunto correttamente', 'success')
+
+    return redirect(url_for('post', id=new_comment['id_post']))
 
 @app.route('/newpost', methods=['POST'])
 def newPost():
     new_post = request.form.to_dict()
 
     # postid
-    new_post['id'] = posts[-1]['id'] + 1
+    new_post['id'] = db_dao.get_next_post_id()
 
     # fotoPost
-    post_image = request.files['fotoPost']
+    post_image = request.files['immagine_post']
 
     if post_image :
-        post_image_name = 'Immagini/img' + new_post['id'] + '.jpg'
+        post_image_name = 'Immagini/Post/' + str(new_post['id']) + '.png'
         post_image.save('static/' + post_image_name)
     else:
-        post_image_name = 'Immagini/foto.png'
+        post_image_name = 'Immagini/Post/_default.png'
     
-    new_post['fotoPost'] = post_image_name
+    new_post['immagine_post'] = post_image_name
 
-    # fotoProfilo
-    new_post['fotoProfilo'] = 'Immagini/Profilo.png'
-
-    # username
-    new_post['username'] = session['user']
+    # user id
+    new_post['id_utente'] = db_dao.get_user_id(session['user'])
 
     # giorniFa
-    data_form = new_post.get('giorniFa')
+    data_form = new_post.get('data_pubblicazione')
 
     if data_form > datetime.now().strftime('%Y-%m-%d'):
         # Data non valida
         flash('Impossibile creare il post', 'danger')
         return redirect(url_for('homepage'))
+
+    new_post['data_pubblicazione'] = data_form
+
+    if not db_dao.add_new_post(new_post) :
+        flash('Impossibile creare il post', 'danger')
     else:
-        # Calcolare quanti giorni sono passati dalla pubblicazione del post
-        dataPost = datetime.strptime(data_form, '%Y-%m-%d')
-        giorni = datetime.now() - dataPost
-
-        if giorni.days == 1:
-            new_post['giorniFa'] = 'Ieri'
-        elif giorni.days == 0:
-            new_post['giorniFa'] = 'Oggi'
-        else:
-            new_post['giorniFa'] = f'{giorni.days} giorni fa'
-
-    posts.append(new_post)
-    
-    flash('Post creato correttamente', 'success')
+        flash('Post creato correttamente', 'success')
+        
     return redirect(url_for('homepage'))
+
+# Calcolo di quanti giorni sono passati dalla pubblicazione del post
+def get_giorni_mancanti(data):
+    giorni = (datetime.now() - datetime.strptime(data, '%Y-%m-%d')).days
+
+    if giorni == 0:
+        return 'Oggi'
+    elif giorni == 1:
+        return 'Ieri'
+    else:
+        return f'{giorni} giorni fa'
