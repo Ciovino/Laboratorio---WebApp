@@ -55,10 +55,10 @@
                 <img class="foto-commento" src=" {{ url_for('static',filename=commento.immagine_profilo) }}"
                     alt="Foto profilo" />
             </div>
-            <h3 class="fs-5">@{{ commento.nickname }}:</h3>
+            <h3 class="fs-5 m-0">@{{ commento.nickname }}:</h3>
         </div>
-        <p class="col-8 fs-5">{{ commento.testo }}</p>
-        <h3 class="col-2 fs-6">{{ commento.data_pubblicazione }}</h3>
+        <p class="col-8 fs-5 m-0">{{ commento.testo }}</p>
+        <h3 class="col-2 fs-6 m-0">{{ commento.data_pubblicazione }}</h3>
     </div>
     {% endfor %}
     {% else %}
@@ -66,7 +66,7 @@
     {% endif %}
 
     {% if session.login %}
-    <form class="row g-3 justify-content-center" action="/newcomment" method="POST" enctype="multipart/form-data">
+    <form class="row mt-1 justify-content-center" action="/newcomment" method="POST" enctype="multipart/form-data">
         <div class="col-9">
             <label for="testo" class="visually-hidden">Commento</label>
             <input type="textarea" class="form-control" name="testo" placeholder="Scrivi un commento" required
