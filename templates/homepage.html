@@ -11,7 +11,35 @@
 </div>
 {% else %}
 <div class="navbar-nav">
-    <a class="nav-link nav-item ms-5 p-2" href="#" title="Login">Login</a>
+    <a class="nav-link nav-item ms-5 p-2" data-bs-toggle="modal" data-bs-target="#Login" title="Login">Login</a>
+    <div class="modal fade" id="Login" tabindex="-1" aria-labelledby="LoginLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form action="/login" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="row m-1 mb-2">
+                            <label for="nickname" class="col-3"> Nickname:</label>
+                            <input name="nickname" pattern="^[a-zA-Z]{4,15}$" class="form-control col" minlength="4"
+                                maxlength="14" required>
+                        </div>
+                        <div class="row m-1 mb-0">
+                            <label for="password" class="col-3"> Password:</label>
+                            <input type="password" name="password" class="form-control col" minlength="7" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn login">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <a class="nav-link nav-item p-2" href="{{ url_for('signup') }}" title="Registrati">Registrati</a>
 </div>
 {% endif %}

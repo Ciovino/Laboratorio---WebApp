@@ -1,6 +1,6 @@
 # Import module
 from flask import Flask, render_template, redirect, url_for, session, request, flash
-from flask_login import LoginManager
+from flask_login import LoginManager, login_user, login_required, logout_user
 from flask_session import Session
 from datetime import datetime
 import database_dao as db_dao
@@ -39,10 +39,10 @@ def newUser():
     immagine_profilo = request.files['immagine_profilo']
 
     # Utente già registrato
-    existing_user = db_dao.existing_user(nickname)
+    existing_user = db_dao.get_user_by_nickname(nickname)
 
     if existing_user:
-        flash('C\'è già un utente registrato con questa mail', 'danger')
+        flash('C\'è già un utente registrato con questo nickname', 'danger')
         return redirect(url_for('signup'))
     else:
         # Immagine profilo
@@ -65,10 +65,20 @@ def newUser():
             flash('Impossibile registrare l\'utente al momento', 'danger')
             return redirect(url_for('signup'))
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login', methods=['POST'])
 def user_login():
-    session['login'] = True
-    session['user'] = request.form.get('user-login')
+    nickname = request.form.get('nickname')
+    password = request.form.get('password')
+
+    existing_user = db_dao.get_user_by_nickname(nickname)
+
+    if not existing_user or not check_password_hash(existing_user['password'], password):
+        flash('Credenziali non valide', 'danger')
+    else:
+        user = User(id = existing_user['id'], nickname = existing_user['nickname'], password = existing_user['password'], immagine_profilo = existing_user['immagine_profilo'])
+        login_user(user)
+        flash('Login effettuato', 'success')
+
     return redirect(url_for('homepage'))
 
 @app.route('/presentazione.html')

@@ -105,24 +105,25 @@ def get_user_by_id(id):
 
     return user
 
-def existing_user(nickname):
+def get_user_by_nickname(nickname):
     # Crea una connessione al database
     connection = sqlite3.connect('databases/social.database.db')
+    connection.row_factory = sqlite3.Row
 
     # Crea un cursore
     cursor = connection.cursor()
 
-    query = 'SELECT COUNT(*) FROM utenti WHERE nickname = ?'
+    query = 'SELECT * FROM utenti WHERE nickname = ?'
 
     cursor.execute(query, (nickname,))
 
-    value = int(cursor.fetchone()[0])
+    user = cursor.fetchone()
 
     # Chiudi connessione e cursore
     cursor.close()
     connection.close()
 
-    return (value != 0)
+    return user
 
 def get_user_id(nickname):
     # Crea una connessione al database
