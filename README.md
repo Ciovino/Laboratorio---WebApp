@@ -71,3 +71,15 @@ Rendere persistenti i dati del social network attraverso l'utilizzo di un databs
 -   [x] Includere il database creato nel progetto, e modificare il codice dell'applicazione affinché i post visualizzati dal social network siano recuperati dal database (creare un file separato che contiene tutte le informazioni per accedere al database);
 -   [x] Modificare l'applicazione in modo che la creazione di un nuovo post utilizzi il database per salvare le informazioni;
 -   [x] Nella pagina di dettaglio dei singoli post, aggiungere la possibilità per gli utenti autenticati di lasciare del commenti. Occorre aggiungere un form per la creazione dei commenti, composto da una singola area di test ed un bottone _'Invia'_. Tale form non sarà visibile per gli utenti non autenticati. La stessa pagina di dettaglio mostrerà anche tutti i commenti già presenti per il post in questione, visualizzandone l'autore, il testo e la data di creazione. La lista dei commenti sarà visibile sempre, anche per gli utenti non autenticati.
+
+## Laboratorio #9: Autenticazione
+
+Implementare un meccanismo di autenticazione, utilizzando il modulo Flask-Login.
+
+- [ ] Nel database, aggiungere un vincolo "*UNIQUE*" al campo username della tabella *UTENTI*, in modo da escludere totalmente la possibilità di avere due utenti con lo stesso username;
+- [ ] Sostituire il meccanismo di autenticazione rudimentale con un meccanismo di registrazione/autenticazione basato su Flask-Login:
+  - [ ] Eliminare il bottone "*Autenticati!*" dalla navbar e il relativo modale, e aggiungere un link/bottone per effettuare il login nella piattaforma e un altro link/bottone per registrarsi;
+  - [ ] Alla pressione del bottone per la registrazione, reindirizzare l'utente ad una pagina di registrazione dedicata. Questa pagina conterrà un form che permetterà l'inserimento di tutti i campi necessari per registrare un nuovo utente nella piattaforma, con opportune validazioni lato client. Contestualmente, creare una route dedicata sul server che si occupi di raccogliere i dati inseriti nel form e aggiungere il nuovo utente nel database;
+  - [ ] Alla pressione del bottone per il login, aprire un modale che permetta all'utente di inserire il proprio username e la propria password. Contestualmente, creare una route dedicata sul server che si occupi di controllare i dati inseriti dall'utente ed eventualmente autenticarlo nel social network tramite Flask-Login;
+  - [ ] Il comportamento dell'applicazione non deve cambiare: un utente non autenticato non può né creare post né lasciare commenti. un utente autenticato, invece, visualizza un messaggio di benvenuto e un link/bottone per il logout sulla navbar, inoltre i post dello stesso utente vengono evidenziati con uno sfondo colorato, e l'utente ha la possibilità di lasciare commenti e aggiungere post;
+  - [ ] Alla pressione del bottone per il logout, effettuare il logout dell'utente dalla piattaforma, servendosi di una opportuna route sul server.
