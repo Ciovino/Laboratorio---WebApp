@@ -34,7 +34,7 @@
                 </div>
                 <h2 class="fs-4">@{{ post.nickname }}</h2>
             </div>
-            <h3 class="col-3 fs-5 text-center">{{ post.data_pubblicazione }}
+            <h3 class="col-3 fs-5 text-center">{{ post.data_pubblicazione }} | Commenti: {{ numcomment }}
             </h3>
         </div>
 
@@ -43,9 +43,11 @@
 </article>
 
 <!-- Commenti -->
-{% if not nocomment %}
-<div class="row m-3 p-2 post-bordo rounded-4">
+
+<div class="row m-3 p-2 post-bordo rounded-4 justify-content-between">
     <h2 class="col-3 fs-3 m-2 mb-4 fw-bold">Commenti</h2>
+
+    {% if numcomment > 0 %}
     {% for commento in commenti %}
     <div class="row m-0 pb-2 d-flex align-items-center">
         <div class="col-2 d-flex align-items-center">
@@ -53,12 +55,29 @@
                 <img class="foto-commento" src=" {{ url_for('static',filename=commento.immagine_profilo) }}"
                     alt="Foto profilo" />
             </div>
-            <h3 class="fs-5">@{{ commento.nickname }}</h3>
+            <h3 class="fs-5">@{{ commento.nickname }}:</h3>
         </div>
         <p class="col-8 fs-5">{{ commento.testo }}</p>
         <h3 class="col-2 fs-6">{{ commento.data_pubblicazione }}</h3>
     </div>
     {% endfor %}
+    {% else %}
+    <p class="fs-5 ms-3"> Ancora nessun commento.</p>
+    {% endif %}
+
+    {% if session.login %}
+    <form class="row g-3 justify-content-center" action="/newcomment" method="POST" enctype="multipart/form-data">
+        <div class="col-9">
+            <label for="testo" class="visually-hidden">Commento</label>
+            <input type="textarea" class="form-control" name="testo" placeholder="Scrivi un commento" required
+                minlength="5">
+        </div>
+        <div class="col-1">
+            <button type="submit" class="btn nuovocommento mb-3">Commenta!</button>
+        </div>
+        <input type="number" name="id_post" value="{{post.id}}" hidden>
+    </form>
+    {% endif %}
 </div>
-{% endif %}
+
 {% endblock %}

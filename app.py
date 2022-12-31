@@ -41,9 +41,27 @@ def post(id):
     for commento in commenti:
         commento['data_pubblicazione'] = get_giorni_mancanti(commento['data_pubblicazione'])
     
-    nocomment = (len(commenti) == 0)
+    numcomment = len(commenti)
 
-    return render_template('post.html', post=post, nocomment=nocomment, commenti=commenti)
+    return render_template('post.html', post=post, numcomment=numcomment, commenti=commenti)
+
+@app.route('/newcomment', methods=['POST'])
+def newComment():
+    # testo, id_post
+    new_comment = request.form.to_dict()
+
+    # id_utente
+    new_comment['id_utente'] = db_dao.get_user_id(session['user'])
+
+    # data_pubblicazione
+    new_comment['data_pubblicazione'] = datetime.now().strftime('%Y-%m-%d')
+
+    if not db_dao.add_new_comment(new_comment) :
+        flash('Impossibile aggiungere un commento', 'danger')
+    else:
+        flash('Commento aggiunto correttamente', 'success')
+
+    return redirect(url_for('post', id=new_comment['id_post']))
 
 @app.route('/newpost', methods=['POST'])
 def newPost():

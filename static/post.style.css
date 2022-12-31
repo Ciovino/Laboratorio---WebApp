@@ -17,6 +17,21 @@ header.navbar {
     border-bottom: 3px solid #2f0147;
 }
 
+button.nuovocommento {
+    color: #fff;
+    background-color: #610f7f;
+}
+
+button.nuovocommento:hover {
+    color: #fff;
+    background-color: #2f0147;
+}
+
+button.nuovocommento:active {
+    color: #fff !important;
+    background-color: #610f7f !important;
+}
+
 .post-bordo {
     border: 2px solid #610f7f !important;
 }
