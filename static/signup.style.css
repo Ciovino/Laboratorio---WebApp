@@ -7,52 +7,37 @@ body {
     color: #2f0147 !important;
 }
 
-header,
-footer {
-    font-size: larger;
-}
-
 header.navbar {
     background-color: #9c528b;
     border-bottom: 3px solid #2f0147;
 }
 
-.primo {
-    font-size: 24px;
-    font-weight: 700;
+header,
+footer {
+    font-size: larger;
 }
 
-.secondo {
-    font-size: 20px;
-    font-weight: 400;
-    font-style: italic;
+#creaUtente {
+    margin: 6% 0px 12% 0px;
 }
 
-section.row {
-    color: white;
-    background-color: rgba(156, 82, 139, 0.7);
-    transition: 0.5s;
+.bordo-form {
+    border: 2px solid #610f7f !important;
 }
 
-section.row:hover {
+button.crea {
+    color: #fff;
+    background-color: #610f7f;
+}
+
+button.crea:hover {
+    color: #fff;
     background-color: #2f0147;
 }
 
-.fb-100 {
-    flex-basis: 100%;
-    text-align: center;
-}
-
-.scale {
-    transition: 0.4s;
-}
-
-.foto-Giovi {
-    width: 60%;
-}
-
-.scale:hover {
-    transform: scale(1.07);
+button.crea:active {
+    color: #fff !important;
+    background-color: #610f7f !important;
 }
 
 footer {

@@ -83,7 +83,50 @@ def get_next_post_id():
     cursor.close()
     connection.close()
 
-    return int(id[0]) + 1
+    if id[0] is None:
+        return 1
+    else:
+        return int(id[0]) + 1
+
+def get_user_by_id(id):
+    # Crea una connessione al database
+    connection = sqlite3.connect('databases/social.database.db')
+    connection.row_factory = sqlite3.Row
+
+    # Crea un cursore
+    cursor = connection.cursor()
+
+    query = 'SELECT * FROM utenti WHERE id = ?'
+
+    cursor.execute(query, (id,))
+
+    user = cursor.fetchone()
+
+    # Chiudi connessione e cursore
+    cursor.close()
+    connection.close()
+
+    return user
+
+def get_user_by_nickname(nickname):
+    # Crea una connessione al database
+    connection = sqlite3.connect('databases/social.database.db')
+    connection.row_factory = sqlite3.Row
+
+    # Crea un cursore
+    cursor = connection.cursor()
+
+    query = 'SELECT * FROM utenti WHERE nickname = ?'
+
+    cursor.execute(query, (nickname,))
+
+    user = cursor.fetchone()
+
+    # Chiudi connessione e cursore
+    cursor.close()
+    connection.close()
+
+    return user
 
 def get_user_id(nickname):
     # Crea una connessione al database
@@ -103,6 +146,34 @@ def get_user_id(nickname):
     connection.close()
 
     return int(id[0])
+
+def add_new_user(user):
+    # Crea una connessione al database
+    connection = sqlite3.connect('databases/social.database.db')
+    connection.row_factory = sqlite3.Row
+
+    # Crea un cursore
+    cursor = connection.cursor()
+
+    # Query
+    query = '''INSERT INTO utenti(nickname, password, immagine_profilo) VALUES(?,?,?)'''
+
+    success = False
+
+    try:
+        cursor.execute(query, (user['nickname'], user['password'], user['immagine_profilo']))
+        connection.commit()
+        success = True
+    except Exception as e:
+        print('ERROR', str(e))
+        # if something goes wrong: rollback
+        connection.rollback()
+
+    # Chiudi connessione e cursore
+    cursor.close()
+    connection.close()
+
+    return success
 
 def add_new_post(post):
     # Crea una connessione al database
