@@ -1,10 +1,10 @@
 * {
-    margin: 0 !important;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 body {
-    color: #2F0147 !important;
+    color: #2f0147 !important;
 }
 
 header,
@@ -13,8 +13,8 @@ footer {
 }
 
 header.navbar {
-    background-color: #9C528B;
-    border-bottom: 3px solid #2F0147;
+    background-color: #9c528b;
+    border-bottom: 3px solid #2f0147;
 }
 
 .primo {
@@ -35,7 +35,7 @@ section.row {
 }
 
 section.row:hover {
-    background-color: #2F0147;
+    background-color: #2f0147;
 }
 
 .fb-100 {
@@ -58,15 +58,15 @@ section.row:hover {
 footer {
     color: white;
     font-style: italic;
-    background-color: #9C528B;
-    border-top: 3px solid #2F0147;
+    background-color: #9c528b;
+    border-top: 3px solid #2f0147;
 }
 
-div.titolo>p {
+div.titolo > p {
     font-style: normal;
     font-size: 20px;
     font-weight: bold;
-    text-decoration: underline #2F0147;
+    text-decoration: underline #2f0147;
 }
 
 .link-footer {

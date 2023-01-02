@@ -1,6 +1,6 @@
 # Import module
 from flask import Flask, render_template, redirect, url_for, session, request, flash
-from flask_login import LoginManager, login_user, login_required, logout_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_session import Session
 from datetime import datetime
 import database_dao as db_dao
@@ -81,6 +81,12 @@ def user_login():
 
     return redirect(url_for('homepage'))
 
+@app.route('/logout')
+@login_required
+def user_logout():
+    logout_user()
+    return redirect(url_for('homepage'))
+
 @app.route('/presentazione.html')
 def presentazione():
     return render_template('presentazione.html')
@@ -106,7 +112,7 @@ def newComment():
     new_comment = request.form.to_dict()
 
     # id_utente
-    new_comment['id_utente'] = db_dao.get_user_id(session['user'])
+    new_comment['id_utente'] = current_user.get_id()
 
     # data_pubblicazione
     new_comment['data_pubblicazione'] = datetime.now().strftime('%Y-%m-%d')
@@ -137,7 +143,7 @@ def newPost():
     new_post['immagine_post'] = post_image_name
 
     # user id
-    new_post['id_utente'] = db_dao.get_user_id(session['user'])
+    new_post['id_utente'] = current_user.get_id()
 
     # giorniFa
     data_form = new_post.get('data_pubblicazione')

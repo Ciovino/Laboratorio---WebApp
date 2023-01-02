@@ -83,7 +83,10 @@ def get_next_post_id():
     cursor.close()
     connection.close()
 
-    return int(id[0]) + 1
+    if id[0] is None:
+        return 1
+    else:
+        return int(id[0]) + 1
 
 def get_user_by_id(id):
     # Crea una connessione al database

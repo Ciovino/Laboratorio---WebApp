@@ -6,3 +6,6 @@ class User(UserMixin):
         self.nickname = nickname
         self.password = password
         self.immagine_profilo = immagine_profilo
+    
+    def get_nickname(self):
+        return self.nickname

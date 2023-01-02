@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block autenticazione %}
-{% if session.login %}
-<div class="nav-item ps-4">
-    <p class="m-0 fs-6 text-light fst-italic">Benvenuto {{ session.user }}!</p>
+{% if current_user.is_authenticated %}
+<div class="navbar-nav ps-4 d-flex align-items-center">
+    <p class="nav-item ps-4 pe-4 m-0 fst-italic text-white">Benvenuto {{ current_user.nickname }}!</p>
+
+    <a class="nav-link nav-item ps-4 pe-4" href="{{ url_for('user_logout') }}" title="Logout">Logout</a>
 </div>
 {% else %}
 <div class="navbar-nav">
@@ -93,7 +95,7 @@ endblock %}
         </main>
     </div>
 
-    {% if session.login %}
+    {% if current_user.is_authenticated %}
     <button type="button" class="btn nuovo-post rounded-circle text-white fs-4" data-bs-toggle="modal"
         data-bs-target="#newPost">+</button>
 
@@ -108,7 +110,7 @@ endblock %}
                         <div class="row d-flex align-items-center mb-2">
                             <labal for="nickname" class="col-2"> Utente:</labal>
                             <input name="nickname" class="form-control col" type="text"
-                                placeholder="@{{ session.user }}" disabled>
+                                placeholder="@{{ current_user.nickname }}" disabled>
                         </div>
                         <div class="row d-flex align-items-start mb-2">
                             <labal for="testo" class=" col-2 mt-2">Post:</labal>
