@@ -1,7 +1,6 @@
 # Import module
-from flask import Flask, render_template, redirect, url_for, session, request, flash
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from flask_session import Session
 from datetime import datetime
 import database_dao as db_dao
 from user_model import User
@@ -10,10 +9,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # Create the application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'shh..itsasecret'
-
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_PERMANENT'] = False
-Session(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -59,10 +54,8 @@ def newUser():
         success = db_dao.add_new_user(new_user)
 
         if success:
-            flash('Utente registrato correttamente', 'success')
             return redirect(url_for('homepage'))
         else:
-            flash('Impossibile registrare l\'utente al momento', 'danger')
             return redirect(url_for('signup'))
 
 @app.route('/login', methods=['POST'])
@@ -72,12 +65,9 @@ def user_login():
 
     existing_user = db_dao.get_user_by_nickname(nickname)
 
-    if not existing_user or not check_password_hash(existing_user['password'], password):
-        flash('Credenziali non valide', 'danger')
-    else:
+    if existing_user and check_password_hash(existing_user['password'], password):
         user = User(id = existing_user['id'], nickname = existing_user['nickname'], password = existing_user['password'], immagine_profilo = existing_user['immagine_profilo'])
         login_user(user)
-        flash('Login effettuato', 'success')
 
     return redirect(url_for('homepage'))
 
@@ -117,10 +107,7 @@ def newComment():
     # data_pubblicazione
     new_comment['data_pubblicazione'] = datetime.now().strftime('%Y-%m-%d')
 
-    if not db_dao.add_new_comment(new_comment) :
-        flash('Impossibile aggiungere un commento', 'danger')
-    else:
-        flash('Commento aggiunto correttamente', 'success')
+    db_dao.add_new_comment(new_comment)
 
     return redirect(url_for('post', id=new_comment['id_post']))
 
@@ -155,10 +142,7 @@ def newPost():
 
     new_post['data_pubblicazione'] = data_form
 
-    if not db_dao.add_new_post(new_post) :
-        flash('Impossibile creare il post', 'danger')
-    else:
-        flash('Post creato correttamente', 'success')
+    db_dao.add_new_post(new_post)
         
     return redirect(url_for('homepage'))
 
