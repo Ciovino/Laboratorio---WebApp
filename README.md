@@ -83,3 +83,16 @@ Implementare un meccanismo di autenticazione, utilizzando il modulo Flask-Login.
   - [x] Alla pressione del bottone per il login, aprire un modale che permetta all'utente di inserire il proprio username e la propria password. Contestualmente, creare una route dedicata sul server che si occupi di controllare i dati inseriti dall'utente ed eventualmente autenticarlo nel social network tramite Flask-Login;
   - [x] Il comportamento dell'applicazione non deve cambiare: un utente non autenticato non può né creare post né lasciare commenti. un utente autenticato, invece, visualizza un messaggio di benvenuto e un link/bottone per il logout sulla navbar, inoltre i post dello stesso utente vengono evidenziati con uno sfondo colorato, e l'utente ha la possibilità di lasciare commenti e aggiungere post;
   - [x] Alla pressione del bottone per il logout, effettuare il logout dell'utente dalla piattaforma, servendosi di una opportuna route sul server.
+
+## Laboratorio #10: Manipolazione del DOM
+
+Manipolare dinamicamente il codice HTML tramite JavaScript, implementando una serie di filtri e ordinamenti per i post.
+
+- [ ] Utilizzare la libreria *day.js* per rappresentare la data di pubblicazione di ogni singolo post;
+- [ ] Utilizzare delle opportune funzioni JavScript per implementare i filtri contenuti nell'aside, manipolando il DOM senza dover ricaricare la pagina web:
+  - [ ] *Oggi*: visualizza solo i post pubblicati nella data corrente;
+  - [ ] *Questa settimana*: visualizza i post degli ultimi sette giorni, compresa la data corrente;
+  - [ ] *Questo mese*: visualizza i post pubblicati nel mese corrente.
+- [ ] Utilizzare delle opportune funzioni JavaScript per ordinare i post visualizzati nella home page. Aggiungere nell'aside due link di ordinamento:
+  - [ ] *Dal più recente*: ordina i post per data di pubblicazione, dal più recente al meno recente;
+  - [ ] *Dal meno recente*: ordina i post per data di pubblicazione, dal meno recente al più recente.
